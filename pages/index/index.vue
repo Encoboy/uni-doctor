@@ -1,17 +1,16 @@
 <template>
-	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
-		<view class="text-area">
-			<text class="title">{{title}}</text>
+		<view>
+			<u-calendar v-model="show" :mode="mode"></u-calendar>
+			<u-button @click="show = true">打开</u-button>
 		</view>
-	</view>
 </template>
 
 <script>
 	export default {
 		data() {
 			return {
-				title: 'Hello'
+					show: false,
+					mode: 'date'
 			}
 		},
 		onLoad() {
