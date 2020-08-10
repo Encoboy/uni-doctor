@@ -82,7 +82,7 @@
 	}
 </script>
 
-<style lang="less">
+<style lang="scss">
 	.hospital-box{
 		padding: 0 20PX;
 		display: flex;

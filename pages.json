@@ -5,6 +5,24 @@
 	
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
+			"path":"pages/home/home",
+			"style":{
+				"navigationBarTitleText":"首页"
+			}
+		},
+		{
+			"path":"pages/home/dataVisualization/dataVisualization",
+			"style":{
+				"navigationBarTitleText":"健康数据信息"
+			}
+		},
+		{
+			"path":"pages/workdesk/workdesk",
+			"style":{
+				"navigationBarTitleText":"工作台"
+			}
+		},
+		{
 			"path":"pages/register/register",
 			"style":{
 				"navigationBarTitleText":"注册"
@@ -13,7 +31,7 @@
 		{
 			"path":"pages/login/login",
 			"style":{
-				"navigationBarTitleText":"首页"
+				"navigationBarTitleText":"登录"
 			}
 		},
 		{
@@ -28,5 +46,22 @@
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+	    "color": "#7A7E83",
+	    "selectedColor": "#3cc51f",
+	    "borderStyle": "black",
+	    "backgroundColor": "#ffffff",
+	    "list": [{
+	        "pagePath": "pages/home/home",
+	        "iconPath": "static/img/home-tabbar.png",
+	        "selectedIconPath": "static/img/home-tabbared.png",
+	        "text": ""
+	    }, {
+	        "pagePath": "pages/workdesk/workdesk",
+	        "iconPath": "static/img/work-tabbar.png",
+	        "selectedIconPath": "static/img/work-tabbared.png",
+	        "text": ""
+	    }]
 	}
 }
