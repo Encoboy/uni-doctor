@@ -4,12 +4,7 @@
 	},
 	
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-		{
-			"path":"pages/home/inhabitantInfo/inhabitantInfo",
-			"style":{
-				"navigationBarTitleText":"居民信息列表"
-			}
-		},
+
 		{
 			"path":"pages/home/home",
 			"style":{
@@ -20,6 +15,18 @@
 			"path":"pages/home/dataVisualization/dataVisualization",
 			"style":{
 				"navigationBarTitleText":"健康数据信息"
+			}
+		},
+		{
+			"path":"pages/home/inhabitantInfo/inhabitantInfo",
+			"style":{
+				"navigationBarTitleText":"居民信息列表"
+			}
+		},
+		{
+			"path":"pages/home/feedback/feedback",
+			"style":{
+				"navigationBarTitleText":"医生反馈"
 			}
 		},
 		{

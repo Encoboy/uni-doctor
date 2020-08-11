@@ -28,12 +28,12 @@
 			</u-table>
 			<u-table class="table-content">
 				<u-tr>
-					<u-td><text class="name">王五</text></u-td>
+					<u-td><text class="name" @click="goInhabitantInfo">王五</text></u-td>
 					<u-td><text @click="goDataVisualization">50</text></u-td>
 					<u-td><text @click="goDataVisualization">40</text></u-td>
 					<u-td><text @click="goDataVisualization">30</text></u-td>
 					<u-td>
-						<view class="action">
+						<view class="action" @click="goFeedback">
 							反馈
 						</view>
 					</u-td>
@@ -70,7 +70,17 @@
 				uni.navigateTo({
 					url:'/pages/home/dataVisualization/dataVisualization'
 				})
-			}
+			},
+			goInhabitantInfo:function(){
+				uni.navigateTo({
+					url:'/pages/home/inhabitantInfo/inhabitantInfo'
+				})
+			},
+			goFeedback:function(){
+				uni.navigateTo({
+					url:'/pages/home/feedback/feedback'
+				})
+			},
 			
 		}
 	}
