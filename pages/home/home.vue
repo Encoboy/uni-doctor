@@ -1,7 +1,7 @@
 <template>
 	<view class="hospital-box" :style="{ height: windowHeight + 'px' }">
-		<view class="img-box">
-			<image class="header-img" src="../../static/img/title-img.png" mode="aspectFit"></image>
+		<view class="header-img-box">
+			<image src="../../static/img/title-img.png" mode="aspectFit"></image>
 		</view>
 		<view class="header-title">
 			总体情况
@@ -19,25 +19,25 @@
 		<view class="table-box">
 			<u-table class="table-title">
 				<u-tr>
-					<u-th>姓名</u-th>
-					<u-th>血糖</u-th>
-					<u-th>血压</u-th>
-					<u-th>心率</u-th>
-					<u-th>操作</u-th>
+					<block v-for="(item,index) in tabelThArr" :key="index">
+						<u-th>{{item}}</u-th>
+					</block>
 				</u-tr>
 			</u-table>
 			<u-table class="table-content">
-				<u-tr>
-					<u-td><text class="name" @click="goInhabitantInfo">王五</text></u-td>
-					<u-td><text @click="goDataVisualization">50</text></u-td>
-					<u-td><text @click="goDataVisualization">40</text></u-td>
-					<u-td><text @click="goDataVisualization">30</text></u-td>
-					<u-td>
-						<view class="action" @click="goFeedback">
-							反馈
-						</view>
-					</u-td>
-				</u-tr>
+				<block v-for="(item,index) in tableUtdContentArr">
+					<u-tr>
+						<u-td><text class="name" @click="goInhabitantInfo(item.name)">{{item.name}}</text></u-td>
+						<u-td><text @click="goDataVisualization">{{item.xuetang}}</text></u-td>
+						<u-td><text @click="goDataVisualization">{{item.xueya}}</text></u-td>
+						<u-td><text @click="goDataVisualization">{{item.xinlv}}</text></u-td>
+						<u-td>
+							<view class="action" @click="goFeedback">
+								反馈
+							</view>
+						</u-td>
+					</u-tr>
+				</block>
 			</u-table>
 		</view>
 	</view>
@@ -47,13 +47,33 @@
 	export default {
 		data() {
 			return {
-				title: 'Hello',
 				windowHeight:0,
 				show: false,
 				mode: 'range',
 				startDate:'',
 				endDate:'',
-				key:0,
+				tabelThArr:[
+					'姓名',
+					'血糖',
+					'血压',
+					'心率',
+					'操作',
+				],
+				tableUtdContentArr:[
+					{
+						name:'王五',
+						xuetang:'50',
+						xueya:'40',
+						xinlv:'30'
+					},
+					{
+						name:'张三',
+						xuetang:'60',
+						xueya:'40',
+						xinlv:'30'
+					},
+				]
+				
 			}
 		},
 		onLoad() {
@@ -71,9 +91,10 @@
 					url:'/pages/home/dataVisualization/dataVisualization'
 				})
 			},
-			goInhabitantInfo:function(){
+			goInhabitantInfo:function(options){
+				console.log(options)
 				uni.navigateTo({
-					url:'/pages/home/inhabitantInfo/inhabitantInfo'
+					url:'/pages/home/inhabitantInfo/inhabitantInfo?name=options'
 				})
 			},
 			goFeedback:function(){
@@ -88,18 +109,6 @@
 
 <style lang="scss">
 	.hospital-box{
-		padding: 0 20PX;
-		display: flex;
-		flex-direction: column;
-		.img-box {
-			flex: 1.5;
-			flex-basis: 0;
-			.header-img {
-				width: 100%;
-				height: 150rpx;
-				margin-top: 20rpx;
-			}
-		}
 		.header-title {
 			flex: 1;
 			flex-basis: 0;

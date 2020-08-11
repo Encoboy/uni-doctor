@@ -1,7 +1,7 @@
 <template>
 	<view class="hospital-box" :style="{ height: windowHeight + 'px' }">
-		<view class="img-box">
-			<image class="header-img" src="../../../static/img/title-img.png" mode="aspectFit"></image>
+		<view class="header-img-box">
+			<image src="../../../static/img/title-img.png" mode="aspectFit"></image>
 		</view>
 		<view class="content-box">
 			<view class="header-title">
@@ -51,18 +51,6 @@
 
 <style lang="scss">
 	.hospital-box{
-		padding: 0 20PX;
-		display: flex;
-		flex-direction: column;
-		.img-box {
-			flex: 1.5;
-			flex-basis: 0;
-			.header-img {
-				width: 100%;
-				height: 150rpx;
-				margin-top: 20rpx;
-			}
-		}
 		.content-box{
 			flex: 8.5;
 			flex-basis: 0;

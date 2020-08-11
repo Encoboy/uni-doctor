@@ -1,13 +1,6 @@
 <template>
-	<view class="hospital-box" :style="{ height: windowHeight + 'px' }">
-		<view class="header-img-box">
-			<image  src="../../../static/img/title-img.png" mode="aspectFit"></image>
-		</view>
-		<view class="header-title">
-			健康数据信息
-		</view>
-		<line-chart-list></line-chart-list>
-<!-- 		<view class="select-date">
+	<view>
+		<view class="select-date">
 			<text class="date-title">选择日期:</text>
 			<view class="date-box"  @click="show = true">
 				<text>{{startDate}}</text>
@@ -51,23 +44,18 @@
 			<view class="line">
 				<line-chart canvasId="index_line_2" :dataAs="lineData2" />
 			</view>
-		</view> -->
-		
+		</view>
 	</view>
 </template>
 
 <script>
 	import LineChart from '@/components/stan-ucharts/LineChart.vue';
-	import LineChartList from '../components/lineChartList.vue'
 	export default {
 		components: {
 			LineChart,
-			'line-chart-list':LineChartList,
 		},
 		data() {
 			return {
-				title: 'Hello',
-				windowHeight:0,
 				show: false,
 				mode: 'range',
 				startDate:'',
@@ -84,8 +72,6 @@
 			}
 		},
 		onLoad() {
-			const res = uni.getSystemInfoSync();
-			this.windowHeight = res.windowHeight;
 		},
 		methods: {
 			change(e) {
@@ -98,62 +84,56 @@
 </script>
 
 <style lang="scss">
-	.hospital-box{
-		.header-title {
-			flex: 1;
+	/* 选择日期 */
+	.select-date{
+		flex: 0.5;
+		flex-basis: 0;
+		display: flex;
+		flex-direction: row;
+		margin-top: 20rpx;
+		.date-title {
+			flex: 2;
 			flex-basis: 0;
-			font-size: 80rpx;
 			text-align: center;
+			height: 60rpx;
+			line-height: 60rpx;
 		}
-		// // 选择日期
-		// .select-date{
-		// 	flex: 0.5;
-		// 	flex-basis: 0;
-		// 	display: flex;
-		// 	flex-direction: row;
-		// 	.date-title {
-		// 		flex: 2;
-		// 		flex-basis: 0;
-		// 		text-align: center;
-		// 		height: 60rpx;
-		// 		line-height: 60rpx;
-		// 	}
-		// 	.date-box {
-		// 		flex: 8;
-		// 		flex-basis: 0;
-		// 		display: flex;
-		// 		flex-direction: row;
-		// 		justify-content: space-around;
-		// 		border: 1px solid $uni-border-color;
-		// 		height: 60rpx;
-		// 		align-items: center;
-		// 		border-radius: 10rpx;
-		// 		image {
-		// 			width: 50rpx;
-		// 			height: 50rpx;
-		// 		}
-		// 	}
-			
-		// }
-		// // 数据展示
-		// .table-box {
-		// 	flex: 6.5;
-		// 	flex-basis: 0;
-		// 	display: flex;
-		// 	flex-direction: column;
-		// 	overflow-y: scroll;
-		// 	.unit{
-		// 		margin-left: 25rpx;
-		// 		.name{
-		// 			font-size: 40rpx;
-		// 			font-weight: 600;
-		// 			margin-top: 50rpx;
-		// 		}
-		// 		.mmhg{
-		// 			font-size: 30rpx;
-		// 			color: lightgray;
-		// 		}
-		// 	}
-		// }
+		.date-box {
+			flex: 8;
+			flex-basis: 0;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			border: 1px solid $uni-border-color;
+			height: 60rpx;
+			align-items: center;
+			border-radius: 10rpx;
+			image {
+				width: 50rpx;
+				height: 50rpx;
+			}
+		}
+		
+	}
+	/* 数据展示 */
+	.table-box {
+		flex: 6.5;
+		flex-basis: 0;
+		display: flex;
+		flex-direction: column;
+		overflow-y: scroll;
+		.unit{
+			margin-left: 25rpx;
+			.name{
+				font-size: 40rpx;
+				font-weight: 600;
+				margin-top: 50rpx;
+				color: red;
+			}
+			.mmhg{
+				font-size: 30rpx;
+				color: lightgray;
+			}
+		}
 	}
 </style>

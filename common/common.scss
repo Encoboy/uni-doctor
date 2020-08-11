@@ -1,0 +1,16 @@
+// 布局框架
+.hospital-box{
+	padding: 0 20PX;
+	display: flex;
+	flex-direction: column;
+}
+// 头部图片样式
+.header-img-box {
+	flex: 1.5;
+	flex-basis: 0;
+	image {
+		width: 100%;
+		height: 150rpx;
+		margin-top: 20rpx;
+	}
+}
