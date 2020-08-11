@@ -15,7 +15,7 @@
 				<image src="@/static/img/plan.png" mode="aspectFit"></image>
 				<text>随访计划</text>
 			</view>
-			<view class="item-box">
+			<view class="item-box" @click="goStatistics">
 				<image src="@/static/img/statistics.png" mode="aspectFit"></image>
 				<text>随访统计</text>
 			</view>
@@ -53,9 +53,13 @@
 				})
 			},
 			goPlan:function(){
-				console.log('jinlailema')
 				uni.navigateTo({
 					url:'/pages/workdesk/plan/plan'
+				})
+			},
+			goStatistics:function(){
+				uni.navigateTo({
+					url:'/pages/workdesk/statistics/statistics'
 				})
 			}
 		}

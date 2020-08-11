@@ -48,6 +48,12 @@
 			}
 		},
 		{
+			"path":"pages/workdesk/statistics/statistics",
+			"style":{
+				"navigationBarTitleText":"随访统计"
+			}
+		},
+		{
 			"path":"pages/login/login",
 			"style":{
 				"navigationBarTitleText":"登录"
