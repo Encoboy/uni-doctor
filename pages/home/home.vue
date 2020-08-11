@@ -1,9 +1,9 @@
 <template>
 	<view class="hospital-box" :style="{ height: windowHeight + 'px' }">
 		<view class="header-img-box">
-			<image src="../../static/img/title-img.png" mode="aspectFit"></image>
+			<image src="@/static/img/title-img.png" mode="aspectFit"></image>
 		</view>
-		<view class="header-title">
+		<view class="header-big-title">
 			总体情况
 		</view>
 		<view class="select-date">
@@ -12,7 +12,7 @@
 				<text>{{startDate}}</text>
 				<text>~</text>
 				<text>{{endDate}}</text>
-				<image src="../../static/img/datebtn.png" mode="aspectFit"></image>
+				<image src="@/static/img/datebtn.png" mode="aspectFit"></image>
 			</view>
 			<u-calendar v-model="show" :mode="mode" @change="change"></u-calendar>
 		</view>
@@ -109,12 +109,6 @@
 
 <style lang="scss">
 	.hospital-box{
-		.header-title {
-			flex: 1;
-			flex-basis: 0;
-			font-size: 80rpx;
-			text-align: center;
-		}
 		// 选择日期
 		.select-date{
 			flex: 1;

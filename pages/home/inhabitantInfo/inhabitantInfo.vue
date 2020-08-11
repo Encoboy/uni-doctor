@@ -1,9 +1,9 @@
 <template>
 	<view class="hospital-box" :style="{ height: windowHeight + 'px' }">
 		<view class="header-img-box">
-			<image src="../../../static/img/title-img.png" mode="aspectFit"></image>
+			<image src="@/static/img/title-img.png" mode="aspectFit"></image>
 		</view>
-		<view class="header-title">
+		<view class="header-big-title">
 			王五
 		</view>
 		<view class="scroll-box" >
@@ -182,12 +182,6 @@
 
 <style lang="scss">
 	.hospital-box {
-		.header-title {
-			flex: 0.8;
-			flex-basis: 0;
-			font-size: 60rpx;
-			text-align: center;
-		}
 		.scroll-box {
 			margin-bottom: 15PX;
 			flex: 8;
@@ -200,35 +194,19 @@
 					width: 100%;
 					height: 300rpx;
 					overflow-y: scroll;
-					.header-row {
+					.header-row,.th-row {
 						display: flex;
 						flex-direction: row;
 						width: 250%;
-						.header-row-title,.action {
+						.header-row-title,.th-row-title,.action {
 							width: 30%;
-							height: 60rpx;
+							height: 70rpx;
 							font-size: 30rpx;
 							border: 1px solid $uni-border-color;
 							text-align: center;
-							line-height: 60rpx;
+							line-height: 70rpx;
 						}
 						.th-action{
-							width: 70%;
-						}
-					}
-					.th-row {
-						display: flex;
-						flex-direction: row;
-						width: 250%;
-						.th-row-title,.action {
-							width: 30%;
-							height: 80rpx;
-							font-size: 30rpx;
-							border: 1px solid $uni-border-color;
-							text-align: center;
-							line-height: 80rpx;
-						}
-						.th-action {
 							display: flex;
 							flex-direction: row;
 							justify-content: space-around;
@@ -245,26 +223,40 @@
 							}
 						}
 					}
+					// .th-row {
+					// 	display: flex;
+					// 	flex-direction: row;
+					// 	width: 250%;
+					// 	.th-row-title,.action {
+					// 		width: 30%;
+					// 		height: 70rpx;
+					// 		font-size: 30rpx;
+					// 		border: 1px solid $uni-border-color;
+					// 		text-align: center;
+					// 		line-height: 70rpx;
+					// 	}
+					// 	.th-action {
+					// 		display: flex;
+					// 		flex-direction: row;
+					// 		justify-content: space-around;
+					// 		align-items: center;
+					// 		width: 70%;
+					// 		view{
+					// 			height: 50rpx;
+					// 			width: 120rpx;
+					// 			background-color: #66ccff;
+					// 			text-align: center;
+					// 			line-height: 50rpx;
+					// 			font-size: 20rpx;
+					// 			border-radius: 10rpx;
+					// 		}
+					// 	}
+					// }
 				}
 
 			}
 			// 用药纪律
 			.pharmacy {
-				.title {
-					width: 100%;
-					height: 68rpx;
-					background-color: #95cae5;
-					display: flex;
-					flex-direction: row;
-					justify-content: space-between;
-					align-items: center;
-					border: 1px solid black;
-					text {
-						color: white;
-						font-size: 40rpx;
-						margin-left: 5PX;
-					}
-				}
 				.content-box{
 					width: 200%;
 					height: 300rpx;

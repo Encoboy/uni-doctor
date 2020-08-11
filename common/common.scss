@@ -14,3 +14,20 @@
 		margin-top: 20rpx;
 	}
 }
+// 头部大标题
+.header-big-title {
+	flex: 1;
+	flex-basis: 0;
+	font-size: 80rpx;
+	text-align: center;
+}
+
+// 按钮样式
+.mini-btn{
+	padding: 8rpx 20rpx;
+	background-color: #169bd5;
+	color: white;
+	font-size: 20rpx;
+	border-radius: 5px;
+}
+

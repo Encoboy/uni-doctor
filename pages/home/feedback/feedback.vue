@@ -1,10 +1,10 @@
 <template>
 	<view class="hospital-box" :style="{ height: windowHeight + 'px' }">
 		<view class="header-img-box">
-			<image src="../../../static/img/title-img.png" mode="aspectFit"></image>
+			<image src="@/static/img/title-img.png" mode="aspectFit"></image>
 		</view>
 		<view class="content-box">
-			<view class="header-title">
+			<view class="header-big-title header-title">
 				医生反馈
 			</view>
 			<view class="text-area">
@@ -59,10 +59,6 @@
 			padding-top: 30rpx;
 			background-color: #bdf2e5;
 			.header-title {
-				flex: 1;
-				flex-basis: 0;
-				font-size: 80rpx;
-				text-align: center;
 				color: #666666;
 			}
 			.text-area {

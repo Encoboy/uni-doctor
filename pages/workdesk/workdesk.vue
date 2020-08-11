@@ -1,34 +1,34 @@
 <template>
 	<view class="hospital-box" :style="{ height: windowHeight + 'px' }">
 		<view class="header-img-box">
-			<image src="../../static/img/title-img.png" mode="aspectFit"></image>
+			<image src="@/static/img/title-img.png" mode="aspectFit"></image>
 		</view>
-		<view class="title">
+		<view class="header-big-title header-title">
 			工作台
 		</view>
 		<view class="active-box">
-			<view class="item-box">
-				<image src="../../static/img/composite-seach.png" mode="aspectFit"></image>
+			<view class="item-box" @click="goCompositeSeach">
+				<image src="@/static/img/composite-seach.png" mode="aspectFit"></image>
 				<text>综合查询</text>
 			</view>
-			<view class="item-box">
-				<image src="../../static/img/plan.png" mode="aspectFit"></image>
+			<view class="item-box" @click="goPlan">
+				<image src="@/static/img/plan.png" mode="aspectFit"></image>
 				<text>随访计划</text>
 			</view>
 			<view class="item-box">
-				<image src="../../static/img/statistics.png" mode="aspectFit"></image>
+				<image src="@/static/img/statistics.png" mode="aspectFit"></image>
 				<text>随访统计</text>
 			</view>
 			<view class="item-box">
-				<image src="../../static/img/work-case.png" mode="aspectFit"></image>
+				<image src="@/static/img/work-case.png" mode="aspectFit"></image>
 				<text>今日工作概况</text>
 			</view>
 			<view class="item-box">
-				<image src="../../static/img/work-search.png" mode="aspectFit"></image>
+				<image src="@/static/img/work-search.png" mode="aspectFit"></image>
 				<text>工作情况查询</text>
 			</view>
 			<view class="item-box">
-				<image src="../../static/img/user-center.png" mode="aspectFit"></image>
+				<image src="@/static/img/user-center.png" mode="aspectFit"></image>
 				<text>个人中心</text>
 			</view>
 		</view>
@@ -47,17 +47,24 @@
 			this.windowHeight = res.windowHeight;
 		},
 		methods: {
+			goCompositeSeach:function(){
+				uni.navigateTo({
+					url:'/pages/workdesk/compositeSeach/compositeSeach'
+				})
+			},
+			goPlan:function(){
+				console.log('jinlailema')
+				uni.navigateTo({
+					url:'/pages/workdesk/plan/plan'
+				})
+			}
 		}
 	}
 </script>
 
 <style lang="scss">
 	.hospital-box{
-		.title{
-			flex: 1;
-			flex-basis: 0;
-			font-size: 60rpx;
-			text-align: center;
+		.header-title{
 			background-color: #b6e2c5;
 			padding: 20rpx 0;
 		}
