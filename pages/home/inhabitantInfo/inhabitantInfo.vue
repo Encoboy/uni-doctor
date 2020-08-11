@@ -66,6 +66,7 @@
 				</view>
 				<scroll-view class="scroll-view_H" scroll-x="true">
 					<view class="table-box">
+					<view class="content-box">
 						<view class="header-row">
 							<view class="header-row-title">
 								门诊记录
@@ -74,7 +75,7 @@
 								操作
 							</view>
 						</view>
-						<view class="content-box">
+
 							<view class="th-row">
 								<view class="th-row-title">
 									2019-02-20  肺部感染
@@ -109,7 +110,6 @@
 								</view>
 							</view>
 						</view>
-
 					</view>
 				</scroll-view>
 			</view>
@@ -118,8 +118,9 @@
 				<view class="title">
 					<text>住院记录</text>
 				</view>
+				<scroll-view class="scroll-view_H" scroll-x="true">
 				<view class="table-box">
-					<scroll-view class="scroll-view_H" scroll-x="true">
+					<view class="content-box">
 						<view class="header-row">
 							<view class="header-row-title">
 								门诊记录
@@ -141,8 +142,9 @@
 								<view>出院小结</view>
 							</view>
 						</view>
-					</scroll-view>
+						</view>
 				</view>
+				</scroll-view>
 			</view>
 			<!-- 用药记录 -->
 			<view class="pharmacy">
@@ -251,7 +253,7 @@
 					}
 				}
 			}
-			// 门诊纪律
+			// 门诊记录
 			.outpatient {
 				margin-bottom: 20rpx;
 				.title {
@@ -269,6 +271,10 @@
 						margin-left: 5PX;
 					}
 				}
+				.content-box{
+					width: 100%;
+					height: 100rpx;
+					overflow-y: scroll;
 				.header-row {
 					display: flex;
 					flex-direction: row;
@@ -282,10 +288,7 @@
 						line-height: 60rpx;
 					}
 				}
-				.content-box{
-					width: 150%;
-					height: 100rpx;
-					overflow-y: scroll;
+
 					.th-row {
 						display: flex;
 						flex-direction: row;
@@ -334,6 +337,10 @@
 						margin-left: 5PX;
 					}
 				}
+				.content-box{
+					width: 100%;
+					height: 100rpx;
+					overflow-y: scroll;
 				.header-row {
 					display: flex;
 					flex-direction: row;
@@ -374,6 +381,7 @@
 							border-radius: 10rpx;
 						}
 					}
+				}
 				}
 			}
 			// 用药纪律
