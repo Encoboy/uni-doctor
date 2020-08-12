@@ -10,7 +10,7 @@
 			<view class="login-text">
 				登  录
 			</view>
-			 <form class="form" @submit="formSubmit" @reset="formReset">
+			 <form class="form" @submit="formSubmit" @reset="formRegister">
 					<view class="login-user">
 						 <image src="../../static/img/icon-user.png" mode=""></image>
 						 <input name="user" placeholder="请输入用户名" />
@@ -59,8 +59,7 @@
 				})
 
             },
-            formReset: function(e) {
-                console.log('清空数据')
+            formRegister: function(e) {
 				uni.navigateTo({
 					url:'/pages/register/register',
 					success() {
@@ -130,7 +129,7 @@
 					.submit,.register {
 						width: 480rpx;
 						height: 90rpx;
-						font-size: 34rpx;
+						font-size: 30rpx;
 						background-color: rgba(22, 155, 213, 1);
 						border: none;
 						border-radius: 480rpx;

@@ -49,11 +49,12 @@
 			flex-basis: 0;
 			display: flex;
 			flex-direction: row;
-			justify-content: space-around;
+			justify-content: space-between;
 			border: 1px solid $uni-border-color;
 			height: 60rpx;
 			align-items: center;
 			border-radius: 10rpx;
+			padding: 0 10rpx;
 			image {
 				width: 50rpx;
 				height: 50rpx;

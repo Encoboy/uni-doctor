@@ -173,7 +173,8 @@
 				})
 			},
 		},
-		onLoad() {
+		onLoad(options) {
+			console.log('url传过来的参数：',options);
 			const res = uni.getSystemInfoSync();
 			this.windowHeight = res.windowHeight;
 		}
@@ -223,35 +224,6 @@
 							}
 						}
 					}
-					// .th-row {
-					// 	display: flex;
-					// 	flex-direction: row;
-					// 	width: 250%;
-					// 	.th-row-title,.action {
-					// 		width: 30%;
-					// 		height: 70rpx;
-					// 		font-size: 30rpx;
-					// 		border: 1px solid $uni-border-color;
-					// 		text-align: center;
-					// 		line-height: 70rpx;
-					// 	}
-					// 	.th-action {
-					// 		display: flex;
-					// 		flex-direction: row;
-					// 		justify-content: space-around;
-					// 		align-items: center;
-					// 		width: 70%;
-					// 		view{
-					// 			height: 50rpx;
-					// 			width: 120rpx;
-					// 			background-color: #66ccff;
-					// 			text-align: center;
-					// 			line-height: 50rpx;
-					// 			font-size: 20rpx;
-					// 			border-radius: 10rpx;
-					// 		}
-					// 	}
-					// }
 				}
 
 			}

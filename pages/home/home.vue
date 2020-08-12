@@ -6,16 +6,7 @@
 		<view class="header-big-title">
 			总体情况
 		</view>
-		<view class="select-date">
-			<text class="date-title">选择日期:</text>
-			<view class="date-box"  @click="show = true">
-				<text>{{startDate}}</text>
-				<text>~</text>
-				<text>{{endDate}}</text>
-				<image src="@/static/img/datebtn.png" mode="aspectFit"></image>
-			</view>
-			<u-calendar v-model="show" :mode="mode" @change="change"></u-calendar>
-		</view>
+		<select-date></select-date>
 		<view class="table-box">
 			<u-table class="table-title">
 				<u-tr>
@@ -25,14 +16,14 @@
 				</u-tr>
 			</u-table>
 			<u-table class="table-content">
-				<block v-for="(item,index) in tableUtdContentArr">
+				<block v-for="(item,index) in tableUtdContentArr" :key="index">
 					<u-tr>
 						<u-td><text class="name" @click="goInhabitantInfo(item.name)">{{item.name}}</text></u-td>
 						<u-td><text @click="goDataVisualization">{{item.xuetang}}</text></u-td>
 						<u-td><text @click="goDataVisualization">{{item.xueya}}</text></u-td>
 						<u-td><text @click="goDataVisualization">{{item.xinlv}}</text></u-td>
 						<u-td>
-							<view class="action" @click="goFeedback">
+							<view class="mini-btn" @click="goFeedback">
 								反馈
 							</view>
 						</u-td>
@@ -44,14 +35,14 @@
 </template>
 
 <script>
+	import SelectDate from '@/components/selectDate/selectDate.vue';
 	export default {
+		components:{
+			'select-date':SelectDate,
+		},
 		data() {
 			return {
 				windowHeight:0,
-				show: false,
-				mode: 'range',
-				startDate:'',
-				endDate:'',
 				tabelThArr:[
 					'姓名',
 					'血糖',
@@ -72,6 +63,7 @@
 						xueya:'40',
 						xinlv:'30'
 					},
+					
 				]
 				
 			}
@@ -81,23 +73,18 @@
 			this.windowHeight = res.windowHeight;
 		},
 		methods: {
-			change(e) {
-				console.log(e);
-				this.startDate = e.startDate;
-				this.endDate = e.endDate;
-			},
-			goDataVisualization:function(){
+			goDataVisualization(){
 				uni.navigateTo({
 					url:'/pages/home/dataVisualization/dataVisualization'
 				})
 			},
-			goInhabitantInfo:function(options){
-				console.log(options)
+			goInhabitantInfo(name){
+				console.log(name)
 				uni.navigateTo({
-					url:'/pages/home/inhabitantInfo/inhabitantInfo?name=options'
+					url:`/pages/home/inhabitantInfo/inhabitantInfo?name=${name}`
 				})
 			},
-			goFeedback:function(){
+			goFeedback(){
 				uni.navigateTo({
 					url:'/pages/home/feedback/feedback'
 				})
@@ -109,60 +96,14 @@
 
 <style lang="scss">
 	.hospital-box{
-		// 选择日期
-		.select-date{
-			flex: 1;
-			flex-basis: 0;
-			display: flex;
-			flex-direction: row;
-			.date-title {
-				flex: 2;
-				flex-basis: 0;
-				text-align: center;
-				height: 60rpx;
-				line-height: 60rpx;
-			}
-			.date-box {
-				flex: 8;
-				flex-basis: 0;
-				display: flex;
-				flex-direction: row;
-				justify-content: space-around;
-				border: 1px solid $uni-border-color;
-				height: 60rpx;
-				align-items: center;
-				border-radius: 10rpx;
-				image {
-					width: 50rpx;
-					height: 50rpx;
-				}
-			}
-			
-		}
 		.table-box {
 			flex: 6.5;
 			flex-basis: 0;
 			border: 1px solid black;
-			display: flex;
-			flex-direction: column;
-			.table-title{
-				flex: 1;
-				flex: 0;
-			}
 			.table-content{
-				flex: 8;
-				flex-basis: 0;
 				overflow-y: scroll;
 				.name{
 					color:blue;
-				}
-				.action {
-					color: white;
-					background-color: #169bd5;
-					width: 80rpx;
-					height: 40rpx;
-					border-radius: 10rpx;
-					margin: auto;
 				}
 			}
 		}
