@@ -16,7 +16,7 @@
 			<view class="workname">
 				职称：慢性疾病专家
 			</view>
-			<view class="long-btn editInfo">
+			<view class="long-btn editInfo" @click="goChangeDoctorInfo">
 				修改信息
 			</view>
 			<view class="long-btn changeAccount">
@@ -41,7 +41,11 @@
 			this.windowHeight = res.windowHeight;
 		},
 		methods:{
-			
+			goChangeDoctorInfo(){
+				uni.navigateTo({
+					url:'/pages/workdesk/usercenter/changedoctorInfo/changedoctorInfo'
+				})
+			}
 		}
 	}
 </script>

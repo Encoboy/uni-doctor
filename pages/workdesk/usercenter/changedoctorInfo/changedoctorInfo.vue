@@ -8,7 +8,7 @@
 		</view>
 		<view class="form-box">
 			<view class="text">
-				实名注册
+				修改信息
 			</view>
 			 <form class="form" @submit="formSubmit" @reset="formReset">
 					 <view class="head-photo">
@@ -100,7 +100,7 @@
 			.text {
 				font-size: 80rpx;
 				font-weight: 500;
-				color: #ff3300;
+				color: #66cccc;
 				text-align: center;
 			}
 			.form {
