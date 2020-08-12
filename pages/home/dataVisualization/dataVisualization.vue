@@ -31,5 +31,7 @@
 </script>
 
 <style lang="scss">
-
+.header-big-title{
+	margin-bottom: 20rpx;
+}
 </style>

@@ -1,6 +1,6 @@
 <template>
 	<view class="userinfo">
-		<view class="inhabit-title">
+		<view class="inhabit-info-title">
 			<text>基本信息</text>
 		</view>
 		<view class="info">

@@ -8,13 +8,19 @@
 				医生反馈
 			</view>
 			<view class="text-area">
-				<u-input style="background-color: white;" v-model="value" :type="type" :border="border" :height="height" :auto-height="autoHeight" />
+				<u-input 
+					style="background-color: white;" 
+					v-model="value" :type="type" 
+					:border="border" 
+					:height="height" 
+					:auto-height="autoHeight" 
+				/>
 			</view>
 			<view class="btn-box">
-				<view class="btn">
+				<view class="save-btn">
 					保存
 				</view>
-				<view class="btn cancel">
+				<view class="save-btn cancel">
 					取消
 				</view>
 			</view>
@@ -31,7 +37,6 @@
 		},
 		data() {
 			return {
-				title: 'Hello',
 				windowHeight:0,
 				value: '',
 				type: 'textarea',
@@ -69,7 +74,7 @@
 				flex-direction: row;
 				justify-content: space-around;
 				margin-top: 50rpx;
-				.btn{
+				.save-btn{
 					width: 250rpx;
 					height: 80rpx;
 					color: white;
