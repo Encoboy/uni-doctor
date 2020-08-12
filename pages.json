@@ -48,6 +48,12 @@
 			}
 		},
 		{
+			"path":"pages/workdesk/compositeSeach/selectdoctorlist/selectdoctorlist",
+			"style":{
+				"navigationBarTitleText":"选择随访医生"
+			}
+		},
+		{
 			"path":"pages/workdesk/plan/plan",
 			"style":{
 				"navigationBarTitleText":"随访计划"

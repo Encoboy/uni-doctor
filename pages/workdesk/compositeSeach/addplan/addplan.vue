@@ -22,7 +22,7 @@
 			<view class="doctor">
 				<text>随访医生：</text>
 				<input type="text" value="" />
-				<view class="mini-btn">
+				<view class="mini-btn" @click="goSelectDoctorList">
 					选择
 				</view>
 			</view>
@@ -58,6 +58,11 @@
 				console.log(e);
 				this.date = e.result;
 			},
+			goSelectDoctorList(){
+				uni.navigateTo({
+					url:'/pages/workdesk/compositeSeach/selectdoctorlist/selectdoctorlist'
+				})
+			}
 		}
 	}
 </script>
