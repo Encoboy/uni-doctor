@@ -42,6 +42,12 @@
 			}
 		},
 		{
+			"path":"pages/workdesk/compositeSeach/addplan/addplan",
+			"style":{
+				"navigationBarTitleText":"新增随访计划"
+			}
+		},
+		{
 			"path":"pages/workdesk/plan/plan",
 			"style":{
 				"navigationBarTitleText":"随访计划"

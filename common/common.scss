@@ -31,12 +31,20 @@ $btn-bg-default:#169bd5;
 	font-size: 20rpx;
 	border-radius: 5px;
 }
+.pri-btn{
+	padding: 15rpx 65rpx;
+	background-color: $btn-bg-default;
+	border-radius: 10rpx;
+	color: white;
+	font-size: 20rpx;
+}
 .long-btn{
 	padding: 15rpx 100rpx;
 	background-color: $btn-bg-default;
 	color: white;
 	border-radius: 10rpx;
-	font-size: 30rpx;
+	font-size: 20rpx;
 }
+					
 
 

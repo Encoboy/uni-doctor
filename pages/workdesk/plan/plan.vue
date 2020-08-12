@@ -41,34 +41,39 @@
 				<view class="scroll-box">
 					<u-table>
 						<u-tr>
-							<u-th>序号</u-th>
-							<u-th>姓名</u-th>
-							<u-th>性别</u-th>
-							<u-th width="25%">证件号码</u-th>
-							<u-th>民族</u-th>
+							<u-th width="5%">居民姓名</u-th>
+							<u-th width="5%">性别</u-th>
 							<u-th width="15%">联系电话</u-th>
-							<u-th width="10%">主治医生</u-th>
-							<u-th width="25%">操作</u-th>
+							<u-th width="10%">任务描述</u-th>
+							<u-th width="13%">计划访问日期</u-th>
+							<u-th width="13%">实际完成日期</u-th>
+							<u-th width="10%">访问医生</u-th>
+							<u-th width="10%">分派人</u-th>
+							<u-th width="13%">类型</u-th>
+							<u-th width="10%">状态</u-th>
+							<u-th width="10%">评价</u-th>
+							<u-th width="15%">操作</u-th>
 						</u-tr>
 						<u-tr>
-							<u-td>1</u-td>
-							<u-td>
-								<text style="color: #007AFF;">王五</text>
+							<u-td width="5%">
+								<text style="color: #007AFF;">张雪</text>
 							</u-td>
-							<u-td>男</u-td>
-							<u-td width="25%">452226199840125402</u-td>
-							<u-td>壮</u-td>
+							<u-td width="5%">女</u-td>
 							<u-td width="15%">18877495623</u-td>
+							<u-td width="10%">下次继续</u-td>
+							<u-td width="13%">2012/12/02</u-td>
+							<u-td width="13%">2092/12/05</u-td>
 							<u-td width="10%">
 								<text style="color: #007AFF;">李科</text>
 							</u-td>
-							<u-td width="25%">
+							<u-td width="10%">legen</u-td>
+							<u-td width="13%">回访跟踪</u-td>
+							<u-td width="10%">未处理</u-td>
+							<u-td width="10%">未评价</u-td>
+							<u-td width="15%">
 								<view class="action">
-									<view class="action-btn look-info">
-										调查信息
-									</view>
-									<view class="action-btn add-plan">
-										新增随访计划
+									<view class="mini-btn">
+										回访结果
 									</view>
 								</view>
 							</u-td>

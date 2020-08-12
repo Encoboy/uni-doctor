@@ -48,7 +48,7 @@
 									<view class="action-btn look-info">
 										调查信息
 									</view>
-									<view class="action-btn add-plan">
+									<view class="action-btn add-plan" @click="goAddPlan">
 										新增随访计划
 									</view>
 								</view>
@@ -90,10 +90,14 @@
 		},
 		methods: {	
 			confirm(e) {
-				console.log(e);
 				let sex = e[0].label;
 				this.selectSex = sex;
-			}	
+			},
+			goAddPlan(){
+				uni.navigateTo({
+					url:'/pages/workdesk/compositeSeach/addplan/addplan'
+				})
+			}
 		}
 	}
 </script>
