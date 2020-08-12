@@ -9,7 +9,7 @@
 		<!-- 选择日期 -->
 		<select-date></select-date>
 		<view class="radio-box">
-			<u-radio-group v-model="value" @change="radioGroupChange">
+			<u-radio-group v-model="radioValue">
 				<u-radio 
 					@change="radioChange" 
 					v-for="(item, index) in list" :key="index" 
@@ -21,9 +21,37 @@
 			</u-radio-group>
 		</view>
 		<view class="chart-box">
-			<view>
+			<view class="chart-his" v-if="radioValue=='柱状图'">
 				<histogram-chart :dataAs="histogramData" canvasId="ht0" />
-				<view style="text-align: center;line-height: 40px;">柱状图histogram Number</view>
+			</view>
+			<view class="table-box" v-if="radioValue=='表格'">
+					<u-table>
+						<u-tr>
+							<u-th>是否到期</u-th>
+							<u-th>是否处理</u-th>
+							<u-th>数量</u-th>
+						</u-tr>
+						<u-tr>
+							<u-td>已到期</u-td>
+							<u-td>未处理</u-td>
+							<u-td>22</u-td>
+						</u-tr>
+						<u-tr>
+							<u-td>已到期</u-td>
+							<u-td>已处理</u-td>
+							<u-td>39</u-td>
+						</u-tr>
+						<u-tr>
+							<u-td>未到期</u-td>
+							<u-td>未处理</u-td>
+							<u-td>0</u-td>
+						</u-tr>
+						<u-tr>
+							<u-td>未到期</u-td>
+							<u-td>已处理</u-td>
+							<u-td>0</u-td>
+						</u-tr>
+					</u-table>
 			</view>
 		</view>
 	</view>
@@ -50,73 +78,36 @@
 						disabled: false
 					}
 				],
-				value: '柱状图',
+				radioValue: '柱状图',
 				histogramData: {
 					//总模板
-					categories: ['未到期', '2013', '2014', '2015', '2016', '2017', '2018'],
+					categories: ['已到期未处理', '已到期已处理','未到期未处理','未到期已处理'],
 					series: [
 						{
-							name: '成交量1', //数据名称
+							name: '数量', //数据名称
 							data: [
-								15,
 								{
-									//(饼图、圆环图、玫瑰图为Number) 数据，如果传入null图表该处出现断点
-									value: 20, //	仅针对柱状图有效，主要作用为柱状图显示数值
-									color: '#f04864' //仅针对柱状图有效，主要作用为柱状图自定义颜色,可覆盖外框定义主题颜色
+									value:35,
+									color:'#ff5252'
 								},
-								45,
-								37,
-								43,
-								34,
-								45
+								{
+									
+									value: 71, 
+									color: '#52ffa9' 
+								},
+								{
+									value:97,
+									color:'#a9a9a9'
+								},
+								{
+									value:42,
+									color:'#a9a9a9'
+								},
 							],
-							show: true, //图形显示状态，配合点击图例显示状态，也可默认指定是否显示
-							color: '#FF7600', //	图形颜色 不传入则使用系统默认配色方案 即统一柱状图颜色
-							textSize: 12 //图形上方标注文字的字体大小
+							show: true, 
+							color: '#FFFFFF', 
+							textSize: 12 
 							//如涉及混合图表请看 http://doc.ucharts.cn/1172126
-						},
-						{
-							name: '成交量2',
-							data: [
-								30,
-								{
-									value: 40,
-									color: '#facc14'
-								},
-								25,
-								14,
-								34,
-								18,
-								20
-							]
-						}
-					]
-				},
-				histogramData2: {
-					//柱状图Compent  //label应为series value 应为
-					label: ['2052', '2013', '2014', '2015', '2016', '2017', '2018'],
-					value: [
-						{
-							name: 'labelKey改变',
-							data: [0.3, 0.2, 0.5, 0.4, 0.3, 0.1, 0.2]
-						}
-					]
-				},
-				histogramData3: {
-					//柱状标准图
-					categories: ['2013', '2014', '2015', '2016', '2017', '2018'],
-					series: [
-						{
-							name: '类别一',
-							data: [35, 36, 31, 33, 13, 34]
-						},
-						{
-							name: '类别二',
-							data: [18, 27, 21, 24, 6, 28]
-						},
-						{
-							name: '类别三',
-							data: [18, 27, 21, 24, 6, 28]
 						}
 					]
 				},
@@ -129,12 +120,9 @@
 		methods: {
 			// 选中某个单选框时，由radio时触发
 			radioChange(e) {
-				console.log('1'+e);
+				console.log(e);
+				this.radioValue = e;
 			},
-			// 选中任一radio时，由radio-group触发
-			radioGroupChange(e) {
-				console.log('2'+e);
-			}
 		}
 	}
 </script>
@@ -149,7 +137,6 @@
 		.chart-box {
 			flex: 6.5;
 			flex-basis: 0;
-			border: 1px solid red;
 		}
 	}
 </style>
