@@ -79,7 +79,6 @@
 				})
 			},
 			goInhabitantInfo(name){
-				console.log(name)
 				uni.navigateTo({
 					url:`/pages/home/inhabitantInfo/inhabitantInfo?name=${name}`
 				})

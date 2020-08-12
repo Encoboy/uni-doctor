@@ -10,72 +10,12 @@
 			<!-- 用戶信息 -->
 			<user-info :reUserInfo="userInfoData"></user-info>
 			<!-- 门诊记录 -->
-			<view class="outpatient">
-				<view class="inhabit-title">
-					<text>门诊记录</text>
-				</view>
-				<scroll-view class="scroll-view_H" scroll-x="true">
-					<view class="table-box">
-					<view class="content-box">
-						<view class="header-row">
-							<view class="header-row-title">
-								门诊记录
-							</view>
-							<view class="action th-action" >
-								操作
-							</view>
-						</view>
-						<view class="th-row">
-							<view class="th-row-title">
-								2019-02-20  肺部感染
-							</view>
-							<view class="action th-action">
-								<view>病历</view>
-								<view>处方</view>
-								<view>化验</view>
-								<view>PACS</view>
-							</view>
-						</view>
-						</view>
-					</view>
-				</scroll-view>
-			</view>
+			<table-record :data="outpatientData" ></table-record>
 			<!-- 住院记录 -->
-			<view class="inHospital">
-				<view class="inhabit-title">
-					<text>住院记录</text>
-				</view>
-				<scroll-view class="scroll-view_H" scroll-x="true">
-					<view class="table-box">
-						<view class="content-box">
-							<view class="header-row">
-								<view class="header-row-title">
-									门诊记录
-								</view>
-								<view class="action th-action">
-									操作
-								</view>
-							</view>
-							<view class="th-row">
-								<view class="th-row-title">
-									2019-02-20  住院 呼吸病
-								</view>
-								<view class="action th-action">
-									<view>入院记录</view>
-									<view>长期医嘱</view>
-									<view>临时医嘱</view>
-									<view>检查结果</view>
-									<view>PACS</view>
-									<view>出院小结</view>
-								</view>
-							</view>
-							</view>
-					</view>
-				</scroll-view>
-			</view>
+			<table-record :data="inHospitalData" ></table-record>
 			<!-- 用药记录 -->
 			<view class="pharmacy">
-				<view class="inhabit-title">
+				<view class="inhabit-info-title">
 					<text>用药记录</text>
 				</view>
 				<scroll-view class="scroll-view_H" scroll-x="true">
@@ -86,22 +26,36 @@
 							</view>
 								<u-table>
 									<u-tr>
-										<block v-for="(item,index) in pharmacyHeadList" :key="index">
-											<u-th>{{item}}</u-th>
-										</block>
+										<u-th width="25%">{{pharmacyHeadList.name}}</u-th>
+										<u-th>{{pharmacyHeadList.num}}</u-th>
+										<u-th>{{pharmacyHeadList.numUnit}}</u-th>
+										<u-th>{{pharmacyHeadList.oneAmount}}</u-th>
+										<u-th>{{pharmacyHeadList.amountUnit}}</u-th>
+										<u-th>{{pharmacyHeadList.way}}</u-th>
+										<u-th>{{pharmacyHeadList.use}}</u-th>
+										<u-th>{{pharmacyHeadList.day}}</u-th>
+										<u-th>{{pharmacyHeadList.oneDayNum}}</u-th>
 									</u-tr>
-									<u-tr  v-for="(item,index) in pharmacyContentArr" :key="index">
-										<block v-for="(name,id) in item" :key="id">
-											<u-td>{{name}}</u-td>
-										</block>
-									</u-tr>
+									<block v-for="(item,index) in pharmacyContentArr" :key="index">
+										<u-tr>
+											<u-th width="25%">{{item.name}}</u-th>
+											<u-th>{{item.num}}</u-th>
+											<u-th>{{item.numUnit}}</u-th>
+											<u-th>{{item.oneAmount}}</u-th>
+											<u-th>{{item.amountUnit}}</u-th>
+											<u-th>{{item.way}}</u-th>
+											<u-th>{{item.use}}</u-th>
+											<u-th>{{item.day}}</u-th>
+											<u-th>{{item.oneDayNum}}</u-th>
+										</u-tr>
+									</block>
 								</u-table>
 						</view>
 					</view>
 				</scroll-view>
 			</view>
 			<view class="guardianship">
-				<view class="inhabit-title">
+				<view class="inhabit-info-title">
 					<text>监护记录</text>
 				</view>
 				<line-chart-list></line-chart-list>
@@ -114,37 +68,51 @@
 <script>
 	import UserInfo from '@/components/userinfo/userinfo.vue';
 	import LineChartList from '../components/lineChartList.vue';
+	import TableRecord from './components/table-record.vue';
 	export default {
 		components: {
 			'user-info':UserInfo,
-			'line-chart-list':LineChartList
+			'line-chart-list':LineChartList,
+			TableRecord,
 		},
 		data(){
 			return {
 				windowHeight:0,
-				pharmacyHeadList:[
-					'药品名称',
-					'药品数量',
-					'数量单位',
-					'一次剂量',
-					'剂量单位',
-					'给药途径',
-					'药品用法',
-					'用药天数',
-					'每日次数'
-				],
+				// 用药记录数据
+				pharmacyHeadList:{
+					name:'药品名称',
+					num:'药品数量',
+					numUnit:'数量单位',
+					oneAmount:'一次剂量',
+					amountUnit:'剂量单位',
+					way:'给药途径',
+					use:'药品用法',
+					day:'用药天数',
+					oneDayNum:'每日次数'
+				},
 				pharmacyContentArr:[
-					[
-						'药品名称1',
-						'药品数量1',
-						'数量单位1',
-						'一次剂量1',
-						'剂量单位1',
-						'给药途径1',
-						'药品用法1',
-						'用药天数1',
-						'每日次数1'
-					],
+					{
+						name:'替硝唑氯化钠注射液',
+						num:'1',
+						numUnit:'瓶',
+						oneAmount:'4',
+						amountUnit:'g',
+						way:'静滴',
+						use:'qd',
+						day:'2',
+						oneDayNum:'1',
+					},
+					{
+						name:'乳酸左氧氟沙星氯化钠注射液',
+						num:'1',
+						numUnit:'瓶',
+						oneAmount:'4',
+						amountUnit:'g',
+						way:'静滴',
+						use:'qd',
+						day:'2',
+						oneDayNum:'1',
+					},
 				],
 				userInfoData:{
 					'name':'王五',
@@ -158,16 +126,50 @@
 					'drugAllergy':'無',
 					"phone":'13664644444',
 					"location":'广西南宁市青秀区东葛路'
-				}
+				},
+				// 门诊记录数据
+				outpatientData:{
+					title:'门诊记录',
+					data:[
+						{
+							date:'2019-02-20',
+							ill:'肺部感染',
+						},
+					],
+					action:[
+						'病历',
+						'处方',
+						'化验',
+						'PACS',
+					],
+				},
+				// 住院记录
+				inHospitalData:{
+					title:'住院记录',
+					data:[
+						{
+							date:'2019-02-20',
+							ill:'住院 呼吸病'
+						},
+					],
+					action:[
+						'入院记录',
+						'长期医嘱',
+						'临时医嘱',
+						'检查结果',
+						'PACS',
+						'出院小结'
+					],
+				},
 			}
 		},
 		methods:{
-			addEquipment:function(){
+			addEquipment(){
 				uni.navigateTo({
 					url:'/pages/userCenter/component/addEquipment',
 				})
 			},
-			editUserInfo:function(){
+			editUserInfo(){
 				uni.navigateTo({
 					url:'/pages/userCenter/component/editUserInfo'
 				})
@@ -189,48 +191,10 @@
 			flex-basis: 0;
 			overflow-y: scroll;
 			padding: 0 10rpx;
-			// 门诊记录 住院記錄
-			.outpatient,.inHospital {
-				.content-box{
-					width: 100%;
-					height: 300rpx;
-					overflow-y: scroll;
-					.header-row,.th-row {
-						display: flex;
-						flex-direction: row;
-						width: 250%;
-						.header-row-title,.th-row-title,.action {
-							width: 30%;
-							height: 70rpx;
-							font-size: 30rpx;
-							border: 1px solid $uni-border-color;
-							text-align: center;
-							line-height: 70rpx;
-						}
-						.th-action{
-							display: flex;
-							flex-direction: row;
-							justify-content: space-around;
-							align-items: center;
-							width: 70%;
-							view{
-								height: 50rpx;
-								width: 120rpx;
-								background-color: #66ccff;
-								text-align: center;
-								line-height: 50rpx;
-								font-size: 20rpx;
-								border-radius: 10rpx;
-							}
-						}
-					}
-				}
-
-			}
 			// 用药纪律
 			.pharmacy {
 				.content-box{
-					width: 200%;
+					width: 220%;
 					height: 300rpx;
 					overflow-y: scroll;
 					.pharmacy-type{
@@ -238,6 +202,12 @@
 						font-weight: 600;
 						margin: 20rpx 0;
 					}
+				}
+			}
+			// 监护记录
+			.guardianship {
+				.inhabit-info-title{
+					margin-bottom: 20rpx;
 				}
 			}
 		}

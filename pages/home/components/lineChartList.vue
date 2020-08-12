@@ -1,15 +1,6 @@
 <template>
 	<view>
-		<view class="select-date">
-			<text class="date-title">选择日期:</text>
-			<view class="date-box"  @click="show = true">
-				<text>{{startDate}}</text>
-				<text>~</text>
-				<text>{{endDate}}</text>
-				<image src="@/static/img/datebtn.png" mode="aspectFit"></image>
-			</view>
-			<u-calendar v-model="show" :mode="mode" @change="change"></u-calendar>
-		</view>
+		<select-date></select-date>
 		<view class="table-box">
 			<view class="unit">
 				<view class="name">
@@ -50,18 +41,14 @@
 
 <script>
 	import LineChart from '@/components/stan-ucharts/LineChart.vue';
+	import SelectDate from '@/components/selectDate/selectDate.vue';
 	export default {
 		components: {
 			LineChart,
+			'select-date':SelectDate,
 		},
 		data() {
 			return {
-				show: false,
-				mode: 'range',
-				startDate:'',
-				endDate:'',
-				key:0,
-				color:'blue',
 				lineData2: {
 					//数字的图--折线图数据
 					categories: ['1', '2', '3', '4', '5', '6'],
@@ -74,47 +61,11 @@
 		onLoad() {
 		},
 		methods: {
-			change(e) {
-				console.log(e);
-				this.startDate = e.startDate;
-				this.endDate = e.endDate;
-			}
 		}
 	}
 </script>
 
 <style lang="scss">
-	/* 选择日期 */
-	.select-date{
-		flex: 0.5;
-		flex-basis: 0;
-		display: flex;
-		flex-direction: row;
-		margin-top: 20rpx;
-		.date-title {
-			flex: 2;
-			flex-basis: 0;
-			text-align: center;
-			height: 60rpx;
-			line-height: 60rpx;
-		}
-		.date-box {
-			flex: 8;
-			flex-basis: 0;
-			display: flex;
-			flex-direction: row;
-			justify-content: space-around;
-			border: 1px solid $uni-border-color;
-			height: 60rpx;
-			align-items: center;
-			border-radius: 10rpx;
-			image {
-				width: 50rpx;
-				height: 50rpx;
-			}
-		}
-		
-	}
 	/* 数据展示 */
 	.table-box {
 		flex: 6.5;
