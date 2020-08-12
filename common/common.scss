@@ -1,3 +1,4 @@
+$btn-bg-default:#169bd5;
 // 布局框架
 .hospital-box{
 	padding: 0 20PX;
@@ -25,9 +26,17 @@
 // 按钮样式
 .mini-btn{
 	padding: 8rpx 20rpx;
-	background-color: #169bd5;
+	background-color: $btn-bg-default;
 	color: white;
 	font-size: 20rpx;
 	border-radius: 5px;
 }
+.long-btn{
+	padding: 15rpx 100rpx;
+	background-color: $btn-bg-default;
+	color: white;
+	border-radius: 10rpx;
+	font-size: 30rpx;
+}
+
 

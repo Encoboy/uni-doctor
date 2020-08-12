@@ -54,6 +54,25 @@
 			}
 		},
 		{
+			"path":"pages/workdesk/workcase/workcase",
+			"style":{
+				"navigationBarTitleText":"今日工作概况"
+			}
+		},
+		{
+			"path":"pages/workdesk/workSearch/workSearch",
+			"style":{
+				"navigationBarTitleText":"工作情况查询"
+			}
+		},
+		{
+			"path":"pages/workdesk/usercenter/usercenter",
+			"style":{
+				"navigationBarTitleText":"个人中心"
+			}
+		},
+		
+		{
 			"path":"pages/login/login",
 			"style":{
 				"navigationBarTitleText":"登录"

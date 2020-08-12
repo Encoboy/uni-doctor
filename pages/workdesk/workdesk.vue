@@ -19,15 +19,15 @@
 				<image src="@/static/img/statistics.png" mode="aspectFit"></image>
 				<text>随访统计</text>
 			</view>
-			<view class="item-box">
+			<view class="item-box" @click="goWorkCase">
 				<image src="@/static/img/work-case.png" mode="aspectFit"></image>
 				<text>今日工作概况</text>
 			</view>
-			<view class="item-box">
+			<view class="item-box" @click="goWorkSearch">
 				<image src="@/static/img/work-search.png" mode="aspectFit"></image>
 				<text>工作情况查询</text>
 			</view>
-			<view class="item-box">
+			<view class="item-box" @click="goUsercenter">
 				<image src="@/static/img/user-center.png" mode="aspectFit"></image>
 				<text>个人中心</text>
 			</view>
@@ -60,6 +60,21 @@
 			goStatistics:function(){
 				uni.navigateTo({
 					url:'/pages/workdesk/statistics/statistics'
+				})
+			},
+			goWorkCase(){
+				uni.navigateTo({
+					url:'/pages/workdesk/workcase/workcase'
+				})
+			},
+			goWorkSearch(){
+				uni.navigateTo({
+					url:'/pages/workdesk/workSearch/workSearch'
+				})
+			},
+			goUsercenter(){
+				uni.navigateTo({
+					url:'/pages/workdesk/usercenter/usercenter'
 				})
 			}
 		}
