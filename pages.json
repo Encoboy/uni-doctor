@@ -5,6 +5,19 @@
 	
 	"pages": [ 
 		{
+			"path":"pages/login/login",
+			"style":{
+				"navigationBarTitleText":"登录"
+			}
+		},
+		{
+			"path":"pages/register/register",
+			"style":{
+				"navigationBarTitleText":"注册"
+			}
+		},
+		
+		{
 			"path":"pages/home/home",
 			"style":{
 				"navigationBarTitleText":"首页"
@@ -90,18 +103,6 @@
 			}
 		},
 		
-		{
-			"path":"pages/login/login",
-			"style":{
-				"navigationBarTitleText":"登录"
-			}
-		},
-		{
-			"path":"pages/register/register",
-			"style":{
-				"navigationBarTitleText":"注册"
-			}
-		},
 		// 测试页
 		{
 			"path": "pages/test/text",

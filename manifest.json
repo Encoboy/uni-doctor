@@ -1,5 +1,5 @@
 {
-    "name" : "uni-doctor",
+    "name" : "医生端",
     "appid" : "__UNI__DA9A491",
     "description" : "",
     "versionName" : "1.0.0",
@@ -50,7 +50,20 @@
             /* ios打包配置 */
             "ios" : {},
             /* SDK配置 */
-            "sdkConfigs" : {}
+            "sdkConfigs" : {
+                "ad" : {}
+            },
+            "icons" : {
+                "android" : {
+                    "hdpi" : "C:/Users/biy/Pictures/icon.png",
+                    "xhdpi" : "C:/Users/biy/Pictures/icon.png",
+                    "xxhdpi" : "C:/Users/biy/Pictures/icon.png",
+                    "xxxhdpi" : "C:/Users/biy/Pictures/icon.png"
+                },
+                "ios" : {
+                    "appstore" : "C:/Users/biy/Pictures/icon.png"
+                }
+            }
         }
     },
     /* 快应用特有相关 */
@@ -72,7 +85,7 @@
     "mp-toutiao" : {
         "usingComponents" : true
     },
-    "uniStatistics": {  
-        "enable": false
+    "uniStatistics" : {
+        "enable" : false
     }
 }
