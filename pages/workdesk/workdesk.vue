@@ -47,17 +47,17 @@
 			this.windowHeight = res.windowHeight;
 		},
 		methods: {
-			goCompositeSeach:function(){
+			goCompositeSeach(){
 				uni.navigateTo({
 					url:'/pages/workdesk/compositeSeach/compositeSeach'
 				})
 			},
-			goPlan:function(){
+			goPlan(){
 				uni.navigateTo({
 					url:'/pages/workdesk/plan/plan'
 				})
 			},
-			goStatistics:function(){
+			goStatistics(){
 				uni.navigateTo({
 					url:'/pages/workdesk/statistics/statistics'
 				})

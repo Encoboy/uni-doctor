@@ -31,29 +31,31 @@
 							<u-th width="10%">主治医生</u-th>
 							<u-th width="25%">操作</u-th>
 						</u-tr>
-						<u-tr>
-							<u-td>1</u-td>
-							<u-td>
-								<text style="color: #007AFF;">王五</text>
-							</u-td>
-							<u-td>男</u-td>
-							<u-td width="25%">452226199840125402</u-td>
-							<u-td>壮</u-td>
-							<u-td width="15%">18877495623</u-td>
-							<u-td width="10%">
-								<text style="color: #007AFF;">李科</text>
-							</u-td>
-							<u-td width="25%">
-								<view class="action">
-									<view class="action-btn look-info">
-										调查信息
+						<block v-for="(item,index) in datalist" :key="index">
+							<u-tr>
+								<u-td>{{item.id}}</u-td>
+								<u-td>
+									<text style="color: #007AFF;">{{item.name}}</text>
+								</u-td>
+								<u-td>{{item.sex}}</u-td>
+								<u-td width="25%">{{item.idcard}}</u-td>
+								<u-td>{{item.nation}}</u-td>
+								<u-td width="15%">{{item.phone}}</u-td>
+								<u-td width="10%">
+									<text style="color: #007AFF;">{{item.doctor}}</text>
+								</u-td>
+								<u-td width="25%">
+									<view class="action">
+										<view class="action-btn look-info">
+											调查信息
+										</view>
+										<view class="action-btn add-plan" @click="goAddPlan">
+											新增随访计划
+										</view>
 									</view>
-									<view class="action-btn add-plan" @click="goAddPlan">
-										新增随访计划
-									</view>
-								</view>
-							</u-td>
-						</u-tr>
+								</u-td>
+							</u-tr>
+						</block>
 					</u-table>
 				</view>
 			</scroll-view>
@@ -81,7 +83,18 @@
 						label: '女'
 					}
 				],
-				selectSex:'性别'
+				selectSex:'性别',
+				datalist:[
+					{
+						id:'1',
+						name:'王五',
+						sex:'男',
+						idcard:'452226199840125402',
+						nation:'壮',
+						phone:'18877495623',
+						doctor:'李科',
+					}
+				]
 			}
 		},
 		onLoad() {

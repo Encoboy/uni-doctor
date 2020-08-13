@@ -1,5 +1,8 @@
 <template>
 		<view>
+			<view class="header-big-title">
+				测试页面
+			</view>
 			<u-calendar v-model="show" :mode="mode"></u-calendar>
 			<u-button @click="show = true">打开</u-button>
 		</view>

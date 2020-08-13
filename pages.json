@@ -104,7 +104,7 @@
 		},
 		// 测试页
 		{
-			"path": "pages/index/index",
+			"path": "pages/test/text",
 			"style": {
 				"navigationBarTitleText": "uni-app"
 			}
