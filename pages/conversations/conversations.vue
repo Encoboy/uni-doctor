@@ -44,9 +44,9 @@
 			</view>
 		</scroll-view>
 		<view class="chat_footer">
-			<view class="conversations" @click="goConversations">
+	<!-- 		<view class="conversations" @click="goConversations">
 				信息
-			</view>
+			</view> -->
 			<view class="contacts" @click="goContacts">
 				通讯录
 			</view>

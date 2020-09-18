@@ -23,14 +23,6 @@
 				</div>
 			</div>
 		</div>
-		<view class="chat_footer">
-			<view class="conversations" @click="goConversations">
-				信息
-			</view>
-			<view class="contacts" @click="goContacts">
-				通讯录
-			</view>
-		</view>
 	</div>
 	
 </template>
@@ -184,19 +176,5 @@
 	  bottom: 0;
 	}
 	
-	.chat_footer{
-		position: fixed;
-		bottom: 0;
-		left: 0;
-		background-color: #f8f7f7;
-		height: 90rpx;
-		width: 100%;
-		.conversations,.contacts{
-			display: inline-block;
-			width: 50%;
-			height: 90rpx;
-			text-align: center;
-			line-height: 90rpx;
-		}
-	}
+
 </style>
