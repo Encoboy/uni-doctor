@@ -102,7 +102,63 @@
 				"navigationBarTitleText":"修改信息"
 			}
 		},
-		
+		{
+			"path": "pages/conversations/conversations",
+			"style": {
+				"navigationBarTitleText": "会话",
+				"navigationBarBackgroundColor" : "#F3F4F7",
+				"navigationBarTextStyle" : "black"
+				// "app-plus" : {
+				// 	"titleNView" : true
+				// }
+			}			
+		},
+		{
+			"path": "pages/contacts/contacts",
+			"style": {
+				"navigationBarTitleText": "通讯录",
+				"navigationBarBackgroundColor" : "#F3F4F7",
+				"navigationBarTextStyle" : "black"
+			}			
+		},
+		{
+			"path": "pages/mine/mine",
+			"style": {
+				"navigationBarTitleText": "我的",
+				"navigationBarBackgroundColor" : "#F3F4F7",
+				"navigationBarTextStyle" : "black"
+			}			
+		},
+		{
+			"path": "pages/chat/privateChat/privateChat",
+			"style": {
+				"navigationBarTitleText": "uni-app",
+				"navigationBarBackgroundColor" : "#F3F4F7",
+				"enablePullDownRefresh": true
+			}			
+		},
+		{
+			"path": "pages/chat/groupChat/groupChat",
+			"style": {
+				"navigationBarTitleText": "群",
+				"navigationBarBackgroundColor" : "#F3F4F7",
+				"enablePullDownRefresh": true
+			}			
+		},
+		{
+			"path": "pages/chat/groupChat/member",
+			"style": {
+				"navigationBarTitleText": "群成员",
+				"navigationBarBackgroundColor" : "#F3F4F7"
+			}			
+		},
+		{
+			"path": "pages/chat/customMessage/customMessage",
+			"style": {
+				"navigationBarTitleText": "自定义消息示例",
+				"navigationBarBackgroundColor" : "#F3F4F7"
+			}
+		},
 		// 测试页
 		{
 			"path": "pages/test/text",

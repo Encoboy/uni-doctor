@@ -9,6 +9,9 @@
 		onHide: function() {
 			console.log('App Hide')
 		},
+		globalData : {
+			imService : null
+		}
 	}
 </script>
 
@@ -18,4 +21,5 @@
 	@import "uni.scss";
 	@import "common/common.scss";
 	@import "common/home/home.scss";
+	@import url("./static/style/chatInterface.css");
 </style>

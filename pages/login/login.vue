@@ -13,11 +13,11 @@
 			 <form class="form" @submit="formSubmit" @reset="formRegister">
 					<view class="login-user">
 						 <image src="../../static/img/icon-user.png" mode=""></image>
-						 <input name="user" placeholder="请输入用户名" />
+						 <input name="user" v-model="username" placeholder="请输入用户名" />
 					 </view>
 					 <view class="login-psw">
 					 	<image src="../../static/img/icon-psw.png" mode=""></image>
-						<input password  name="psw" placeholder="请输入密码"/>
+						<input password  name="psw" v-model="password" placeholder="请输入密码"/>
 					 </view>
 					 <view class="forget-psw">
 					 	忘记密码？
@@ -32,11 +32,15 @@
 </template>
 
 <script>
+	import IMService from "../../lib/imservice";
 	export default {
 		data() {
 			return {
 				title: 'Hello',
 				windowHeight:0,
+				username:'',
+				password:'',
+				showError:false
 			}
 		},
 		onLoad() {
@@ -44,21 +48,38 @@
 			this.windowHeight = res.windowHeight;
 		},
 		methods: {
-            formSubmit: function(e) {
+            formSubmit (e) {
 				console.log('form发生了submit事件，携带数据为：' + JSON.stringify(e.detail.value))
 				var formdata = e.detail.value
-				uni.showModal({
-				    content: '表单数据内容：' + JSON.stringify(formdata),
-				    showCancel: false
-				});
-				uni.switchTab({
-					url:'/pages/home/home',
-					success() {
-						console.log('跳转到首页')
+				if(this.username.trim() != "" && this.password.trim() != ""){
+					getApp().globalData.imService = new IMService();
+					let loginResult = getApp().globalData.imService.login(this.username, this.password);
+					if (loginResult) {
+						//连接IM
+						getApp().globalData.imService.connectIM();
+						// uni.switchTab({
+						// 	url:'../conversations/conversations'
+						// })
+					} else {
+						console.log('登录失败');
+						this.showError = true;
 					}
-				})
+					// return;
+					uni.showModal({
+					    content: '表单数据内容：' + JSON.stringify(formdata),
+					    showCancel: false
+					});
+					uni.switchTab({
+						url:'/pages/home/home',
+						success() {
+							console.log('跳转到首页')
+						}
+					})
+				}
+				this.showError = true;
 
             },
+			
             formRegister: function(e) {
 				uni.navigateTo({
 					url:'/pages/register/register',
