@@ -22,7 +22,7 @@
 			<view class="long-btn changeAccount">
 				切换账号
 			</view>
-			<view class="long-btn exit">
+			<view class="long-btn exit" @click="logout">
 				退出登录
 			</view>
 		</view>
@@ -45,6 +45,14 @@
 				uni.navigateTo({
 					url:'/pages/workdesk/usercenter/changedoctorInfo/changedoctorInfo'
 				})
+			},
+			logout(){
+				getApp().globalData.imService.disconnect().then(res => {
+				    uni.navigateTo({
+				    	url:'/pages/login/login'
+				    })
+				})
+
 			}
 		}
 	}

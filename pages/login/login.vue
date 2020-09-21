@@ -57,24 +57,17 @@
 					if (loginResult) {
 						//连接IM
 						getApp().globalData.imService.connectIM();
-						// uni.switchTab({
-						// 	url:'../conversations/conversations'
-						// })
+						uni.switchTab({
+							url:'/pages/home/home',
+							success() {
+								console.log('跳转到首页')
+							}
+						})
 					} else {
 						console.log('登录失败');
 						this.showError = true;
 					}
 					// return;
-					uni.showModal({
-					    content: '表单数据内容：' + JSON.stringify(formdata),
-					    showCancel: false
-					});
-					uni.switchTab({
-						url:'/pages/home/home',
-						success() {
-							console.log('跳转到首页')
-						}
-					})
 				}
 				this.showError = true;
 
