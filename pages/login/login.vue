@@ -12,19 +12,25 @@
 			</view>
 			 <form class="form" @submit="formSubmit" @reset="formRegister">
 					<view class="login-user">
-						 <image src="../../static/img/icon-user.png" mode=""></image>
-						 <input name="user" v-model="username" placeholder="请输入用户名" />
+						 <view class="iconfont icon-user"></view>
+						 <input name="user" v-model="username" placeholder="用户名" placeholder-style="color:lightgray" />
 					 </view>
 					 <view class="login-psw">
-					 	<image src="../../static/img/icon-psw.png" mode=""></image>
-						<input password  name="psw" v-model="password" placeholder="请输入密码"/>
+					 	<view class="iconfont icon-lock"></view>
+						<input password  name="psw" v-model="password" placeholder="密码" placeholder-style="color:lightgray"/>
 					 </view>
-					 <view class="forget-psw">
-					 	忘记密码？
+					 <view class="login-new">
+					 	<view class="new-user" @click="reset">
+					 		注册新用户
+					 	</view>
+						<view class="forget-psw">
+							忘记密码
+						</view>
 					 </view>
 					 <view class="form-btn">
-						 <button class="submit" form-type="submit">登录</button>
-						 <button class="register reg" form-type="reset">注册</button>
+						 <button class="submit" form-type="submit">
+							 <text>登</text><text>录</text>
+						 </button>
 					 </view>
 			 </form>
 		</view>
@@ -73,7 +79,7 @@
 
             },
 			
-            formRegister: function(e) {
+            reset() {
 				uni.navigateTo({
 					url:'/pages/register/register',
 					success() {
@@ -102,6 +108,7 @@
 			width: 100%;
 			background-color: #22a77a;
 			padding-top: 50rpx;
+			padding: 50rpx 40rpx 0;
 			.login-text {
 				font-size: 60rpx;
 				font-weight: 500;
@@ -111,50 +118,56 @@
 			.form {
 				display: flex;
 				flex-direction: column;
+				margin-top: 100rpx;
 				// input输入框
 				.login-user, .login-psw {
 					flex: 2;
 					flex-basis: 1;
-					border: 1px solid black;
-					margin: 10PX 20PX 20PX 20PX;
+					margin: 10PX 0PX 0PX 0PX;
 					padding: 5PX 10PX 2PX 10PX;
 					background-color: white;
-					image {
-						width: 80rpx;
-						height: 80rpx;
-						margin-right: 5PX;
+					border-radius: 30px;
+					display: flex;
+					flex-direction: row;
+					
+					.icon-user,.icon-lock{
+						font-size: 50rpx;
+						align-self: center;
+						margin-right: 10px;
+						color: lightgray;
 					}
 					input {
-						display: inline-block;
 						height: 80rpx;
 						font-size: 30rpx;
 					}
 				}
-				.forget-psw {
-					color: #cc6635;
-					font-size: 40rpx;
-					font-weight: 600;
-					margin-left: 40rpx;
-					margin-top: -20rpx;
+				.login-new {
+					margin: 10PX 0PX 20PX 0PX;
+					color: white;
+					.new-user {
+						float: left;
+					}
+					.forget-psw {
+						float: right;
+					}
 				}
+
 				// 登录按钮
 				.form-btn {
-					margin: 50PX 0;
-					.submit,.register {
-						width: 480rpx;
-						height: 90rpx;
+					margin: 70PX 0;
+					.submit {
+						width: 100%;
+						height: 60rpx;
 						font-size: 30rpx;
-						background-color: rgba(22, 155, 213, 1);
+						background-color: #6ce155;
 						border: none;
 						border-radius: 480rpx;
 						color: white;
-						line-height: 90rpx;
+						line-height: 60rpx;
 					}
-					.reg{
-						background-color: rgba(255, 255, 255, 1);
-						border:1PX solid rgba(0, 102, 255, 1);
-						color: rgba(0, 102, 255, 1);
-						margin-top: 20PX;
+					text{
+						margin-right: 25rpx;
+						margin-left: 25rpx;
 					}
 				}
 			}
