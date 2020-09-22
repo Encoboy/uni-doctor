@@ -324,7 +324,7 @@
 		border-radius: 60rpx;
 	}
 	.uni-toast{
-		background-color: #ffffff!important;
+		/* background-color: #ffffff!important; 为了显示uni的showtoast提示，将这里给注释了*/
 	}
 	.time-lag{
 		font-size: 20rpx;

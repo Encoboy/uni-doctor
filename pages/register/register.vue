@@ -7,34 +7,31 @@
 			<image src="@/static/img/motto-img.png" mode="aspectFit"></image>
 		</view>
 		<view class="form-box">
-			<view class="text">
-				实名注册
-			</view>
 			 <form class="form" @submit="formSubmit" @reset="formReset">
 					 <view class="head-photo">
 						<image src="@/static/img/head-photo.png" mode="aspectFit"></image>
 					 </view>
-					 <input class="user" name="user"  placeholder="姓名" placeholder-style="color:#d9d9d9"/>
-					 <input  class="psw" name="psw" password  placeholder="6-16位密码,区分大小写" placeholder-style="color:#d9d9d9"/>
-					 <input class="anain-psw" name="again-pws" password  placeholder="确认密码" placeholder-style="color:#d9d9d9"/>
+					 <input class="user" name="user" v-model="username"  placeholder="姓名(实名)" placeholder-style="color:#d9d9d9"/>
+					 <input  class="psw" name="psw" password v-model="password"  placeholder="6-16位密码,区分大小写" placeholder-style="color:#d9d9d9"/>
+					 <input class="anain-psw" name="again-pws" password v-model="againPsw"  placeholder="确认密码" placeholder-style="color:#d9d9d9"/>
 					 <view class="phone">
 					 	<view class="code">
 					 		+ 86
 					 	</view>
-						<input name="phone" placeholder="11位手机号" placeholder-style="color:#d9d9d9"/>
+						<input name="phone" placeholder="11位手机号" v-model="phone" placeholder-style="color:#d9d9d9"/>
 					 </view>
 					 <view class="verification-code">
-					 	<input name='verificationCode' placeholder="输入验证码" placeholder-style="color:#d9d9d9" />
-						<view class="get-verificationCode">
-							获取验证码
+					 	<input name='verificationCode' placeholder="输入验证码" v-model="code" placeholder-style="color:#d9d9d9" />
+						<view class="get-verificationCode" @click="getCode">
+							{{showTime?codeTime + "(s)":'获取验证码'}}
 						</view>
 					 </view>
-					 <view class="accounted">
+					 <!-- <view class="accounted">
 					 	使用已有账户登录
-					 </view>
+					 </view> -->
 					 <view class="form-btn">
-						 <button class="submit" form-type="submit">确认</button>
-						 <button class="register reg" form-type="reset">取消</button>
+						 <button class="submit sub" @click="submit">确 认</button>
+						 <button class="register reg" @click="cancel">取 消</button>
 					 </view>
 			 </form>
 		</view>
@@ -45,8 +42,28 @@
 	export default {
 		data() {
 			return {
-				title: 'Hello',
 				windowHeight:0,
+				username:'',
+				password:'',
+				againPsw:'',
+				phone:'',
+				code:'',
+				showTime:false,
+				codeTime:'60',
+				rules:{
+					username:{
+						rule:/\S/,
+						msg:"用户名不能为空"
+					},
+					password:{
+						rule:/^[0-9a-zA-Z]{6,16}$/,
+						msg:"密码应该为6-16位",
+					},
+					phone:{
+						rule:/^[0-9]{11}$/,
+						msg:"手机号码不正确"
+					}
+				},
 			}
 		},
 		onLoad() {
@@ -54,30 +71,57 @@
 			this.windowHeight = res.windowHeight;
 		},
 		methods: {
-            formSubmit: function(e) {
-				console.log('form发生了submit事件，携带数据为：' + JSON.stringify(e.detail.value))
-				var formdata = e.detail.value
-				uni.showModal({
-				    content: '表单数据内容：' + JSON.stringify(formdata),
-				    showCancel: false
-				});
-				uni.switchTab({
-					url:'/pages/home/home',
-					success() {
-						console.log('跳转到首页')
-					}
-				})
-
-            },
-            formReset: function(e) {
-                console.log('清空数据')
+			submit(){
+				if(!this.validate('username')) return;
+				if(!this.validate('password')) return;
+				if(this.password !== this.againPsw){
+					uni.showToast({
+						title:'密码不一致',
+						icon:'none',
+					})
+					return;
+				}
+				if(!this.validate('phone')) return;
 				uni.navigateTo({
-					url:'/pages/register/register',
-					success() {
-						console.log('跳转到注册页面')
-					}
+					url:'/pages/login/login',
+					success() {}
 				})
-            }
+			},
+			// 判断验证是否符合要求
+			validate(key){
+				let bool = true;
+				if(!this.rules[key].rule.test(this[key])){
+					// 提示信息
+					uni.showToast({
+						title:this.rules[key].msg,
+						icon:'none',
+					})
+					// 取反
+					bool = false;
+					return false;
+				}
+				return bool;
+			},
+            cancel() {
+				uni.navigateTo({
+					url:'/pages/login/login',
+					success() {}
+				})
+            },
+			getCode(){
+				this.showTime = true;
+				this.countDown();
+			},
+			countDown(){
+				let timeClock = setInterval(()=>{
+					this.codeTime --;
+					if(this.codeTime == 0){
+						clearInterval(timeClock);
+						this.codeTime = 60;
+						this.showTime = false;
+					}
+				},1000)
+			}
 		}
 	}
 </script>
@@ -133,7 +177,7 @@
 					.code {
 						flex: 2;
 						flex-basis: 0;
-						height: 70rpx;
+						height: 66rpx;
 						border-right: 1px solid #d9d9d9 ;
 						text-align: center;
 						line-height: 70rpx;
@@ -163,7 +207,7 @@
 					.get-verificationCode {
 						flex: 4;
 						flex-basis: 0;
-						height: 70rpx;
+						height: 74rpx;
 						border: 1px solid #d9d9d9 ;
 						text-align: center;
 						line-height: 70rpx;
@@ -179,9 +223,7 @@
 				}
 				// 注册按钮
 				.form-btn {
-					display: flex;
-					flex-direction: row;
-					justify-content: space-around;
+					margin-top: 100rpx;
 					.submit,.register {
 						width: 300rpx;
 						height: 80rpx;
@@ -191,8 +233,13 @@
 						border-radius: 480rpx;
 						color: white;
 						line-height: 80rpx;
+						
+					}
+					.sub{
+						float: left;
 					}
 					.reg{
+						float: right;
 						background-color: #cccccc;
 						border: none;
 						color: white;

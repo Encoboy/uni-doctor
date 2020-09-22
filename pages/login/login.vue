@@ -28,7 +28,7 @@
 						</view>
 					 </view>
 					 <view class="form-btn">
-						 <button class="submit" form-type="submit">
+						 <button class="submit" @click="submit">
 							 <text>登</text><text>录</text>
 						 </button>
 					 </view>
@@ -42,11 +42,19 @@
 	export default {
 		data() {
 			return {
-				title: 'Hello',
 				windowHeight:0,
 				username:'',
 				password:'',
-				showError:false
+				rules:{
+					username:{
+						rule:/\S/,
+						msg:"用户名不能为空"
+					},
+					password:{
+						rule:/^[0-9a-zA-Z]{6,16}$/,
+						msg:"密码应该为6-16位",
+					},
+				}
 			}
 		},
 		onLoad() {
@@ -54,10 +62,15 @@
 			this.windowHeight = res.windowHeight;
 		},
 		methods: {
-            formSubmit (e) {
-				console.log('form发生了submit事件，携带数据为：' + JSON.stringify(e.detail.value))
-				var formdata = e.detail.value
-				if(this.username.trim() != "" && this.password.trim() != ""){
+			submit(){
+				if(!this.validate('username')) return;
+				if(!this.validate('password')) return;
+				uni.showLoading({
+					title:"登录中..."
+				});
+				setTimeout(()=>{
+					// 隐藏登录状态
+					uni.hideLoading();
 					getApp().globalData.imService = new IMService();
 					let loginResult = getApp().globalData.imService.login(this.username, this.password);
 					if (loginResult) {
@@ -66,18 +79,32 @@
 						uni.switchTab({
 							url:'/pages/home/home',
 							success() {
-								console.log('跳转到首页')
+								
 							}
 						})
 					} else {
-						console.log('登录失败');
-						this.showError = true;
+						uni.showToast({
+							title:'登录失败',
+							icon:'none',
+						})
 					}
-					// return;
+				},2000)
+			},
+			// 判断验证是否符合要求
+			validate(key){
+				let bool = true;
+				if(!this.rules[key].rule.test(this[key])){
+					// 提示信息
+					uni.showToast({
+						title:this.rules[key].msg,
+						icon:'none',
+					})
+					// 取反
+					bool = false;
+					return false;
 				}
-				this.showError = true;
-
-            },
+				return bool;
+			},
 			
             reset() {
 				uni.navigateTo({
@@ -166,8 +193,8 @@
 						line-height: 60rpx;
 					}
 					text{
-						margin-right: 25rpx;
-						margin-left: 25rpx;
+						margin-right: 30rpx;
+						margin-left: 30rpx;
 					}
 				}
 			}
