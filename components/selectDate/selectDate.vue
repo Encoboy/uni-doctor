@@ -7,7 +7,7 @@
 			<text>{{endDate}}</text>
 			<image src="@/static/img/datebtn.png" mode="aspectFit"></image>
 		</view>
-		<u-calendar v-model="show" :mode="mode" @change="change"></u-calendar>
+		<u-calendar v-model="show" max-date="2100" :mode="mode" @change="change"></u-calendar>
 	</view>
 </template>
 
