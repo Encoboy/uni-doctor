@@ -83,7 +83,7 @@
 			flex: 7;
 			flex-basis: 1;
 			margin-right: 5PX;
-			text-align: left;
+			text-align: center;
 		}
 	}
 }

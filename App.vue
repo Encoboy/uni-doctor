@@ -21,6 +21,6 @@
 	@import "uni.scss";
 	@import "common/common.scss";
 	@import "common/home/home.scss";
-	@import url("./static/style/chatInterface.css");
+	@import "./static/style/chatInterface.css";
 	@import "./static/style/iconfont/iconfont.css";
 </style>

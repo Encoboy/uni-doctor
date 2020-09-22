@@ -98,7 +98,6 @@
 		.table-box {
 			flex: 6.5;
 			flex-basis: 0;
-			border: 1px solid black;
 			.table-content{
 				overflow-y: scroll;
 				.name{

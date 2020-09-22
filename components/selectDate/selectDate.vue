@@ -1,9 +1,9 @@
 <template>
 	<view class="select-date">
-		<text class="date-title">选择日期:</text>
+		<text class="date-title">选择日期 </text>
 		<view class="date-box"  @click="show = true">
-			<text>{{startDate}}</text>
-			<text>~</text>
+			<text style="margin-left: 20rpx;">{{startDate}}</text>
+			<text>{{startDate?'~':''}}</text>
 			<text>{{endDate}}</text>
 			<image src="@/static/img/datebtn.png" mode="aspectFit"></image>
 		</view>
@@ -21,6 +21,7 @@
 				endDate:'',
 			}
 		},
+
 		methods: {
 			change(e) {
 				console.log(e);
@@ -41,8 +42,8 @@
 			flex: 2;
 			flex-basis: 0;
 			text-align: center;
-			height: 60rpx;
-			line-height: 60rpx;
+			height: 72rpx;
+			line-height: 72rpx;
 		}
 		.date-box {
 			flex: 8;
@@ -51,7 +52,7 @@
 			flex-direction: row;
 			justify-content: space-between;
 			border: 1px solid $uni-border-color;
-			height: 60rpx;
+			height: 72rpx;
 			align-items: center;
 			border-radius: 10rpx;
 			padding: 0 10rpx;

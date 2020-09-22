@@ -20,7 +20,7 @@
 				<view class="save-btn">
 					保存
 				</view>
-				<view class="save-btn cancel">
+				<view class="save-btn cancel" @click="cancel">
 					取消
 				</view>
 			</view>
@@ -50,6 +50,11 @@
 			this.windowHeight = res.windowHeight;
 		},
 		methods: {
+			cancel(){
+				uni.switchTab({
+					url:'/pages/home/home'
+				})
+			}
 		}
 	}
 </script>
@@ -59,7 +64,6 @@
 		.content-box{
 			flex: 8.5;
 			flex-basis: 0;
-			border: 1px solid black;
 			margin-bottom: 30rpx;
 			padding-top: 30rpx;
 			background-color: #bdf2e5;
