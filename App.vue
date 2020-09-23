@@ -20,7 +20,6 @@
 	@import "uview-ui/index.scss";
 	@import "uni.scss";
 	@import "common/common.scss";
-	@import "common/home/home.scss";
 	@import "./static/style/chatInterface.css";
 	@import "./static/style/iconfont/iconfont.css";
 </style>

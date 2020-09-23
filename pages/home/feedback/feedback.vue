@@ -10,7 +10,9 @@
 			<view class="text-area">
 				<u-input 
 					style="background-color: white;" 
+					placeholder="最多输入200字符"
 					v-model="value" :type="type" 
+					maxlength="200"
 					:border="border" 
 					:height="height" 
 					:auto-height="autoHeight" 

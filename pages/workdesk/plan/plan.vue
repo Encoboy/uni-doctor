@@ -31,8 +31,10 @@
 					<u-icon name="arrow-down-fill" color="black" size="28"></u-icon>
 				</view>
 			</view>
+		</view>
+		<view class="input-box">
 			<input type="text" value="" placeholder="请输入姓名和身份证" placeholder-style="font-size:20rpx"/>
-			<view class="mini-btn">
+			<view class="search-pri-btn">
 				查询
 			</view>
 		</view>
@@ -190,22 +192,35 @@
 				border: 1px solid $uni-border-color;
 				padding: 5rpx 3rpx;
 				width: 160rpx;
+				height: 60rpx;
+				border-radius: 5px;
 				display: flex;
 				flex-direction: row;
 				justify-content: space-around;
+				align-items: center;
 			}
 		}
+	}
+	.input-box{
+		flex: 1;
+		flex-basis: 0;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		flex-wrap: wrap;
 		input{
 			border: 1px solid $uni-border-color;
 			width: 295rpx;
-			height: 50rpx;
+			height: 60rpx;
 			margin-right: 20rpx;
+			padding: 0 5px;
+			border-radius: 5px;
 		}
 	}
 	.table-box{
 		flex:6.5;
 		flex-basis: 0;
-		padding-top: 100rpx;
+		padding-top: 80rpx;
 		.scroll-box {
 			width: 220%;
 			height: 425rpx ;

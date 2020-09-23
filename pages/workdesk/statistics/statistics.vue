@@ -129,6 +129,7 @@
 
 <style lang="scss">
 	.hospital-box{
+		padding: 0 10px 0 0;
 		.radio-box{
 			flex: 1;
 			flex-basis: 0;

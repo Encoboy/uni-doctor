@@ -13,7 +13,7 @@
 				<u-icon name="arrow-down-fill" color="black" size="28"></u-icon>
 			</view>
 			<input type="text" value="" placeholder="请输入姓名和身份证" placeholder-style="font-size:20rpx"/>
-			<view class="mini-btn">
+			<view class="search-pri-btn">
 				查询
 			</view>
 		</view>
@@ -111,12 +111,18 @@
 			border: 1px solid $uni-border-color;
 			padding: 5rpx 3rpx;
 			width: 140rpx;
+			height: 60rpx;
 			display: flex;
 			flex-direction: row;
 			justify-content: space-around;
+			align-items: center;
+			border-radius: 5px;
 		}
 		input{
 			border: 1px solid $uni-border-color;
+			height: 60rpx;
+			padding: 0 5px;
+			border-radius: 5px;
 		}
 	}
 	.table-box{

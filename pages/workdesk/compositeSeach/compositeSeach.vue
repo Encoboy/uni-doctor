@@ -8,9 +8,9 @@
 		</view>
 		<view class="search-box">
 			<u-select v-model="show" :list="list" @confirm="confirm"></u-select>
-			<view class="select-sex" @click="show = true">
+			<view class="select-sex" @click="selectShow" :style="{borderColor:show?selectColor:''}">
 				<text>{{selectSex}}</text>
-				<u-icon name="arrow-down-fill" color="black" size="28"></u-icon>
+				<u-icon name="arrow-down-fill" color="black" size="20"></u-icon>
 			</view>
 			<input type="text" value="" placeholder="请输入姓名和身份证" placeholder-style="font-size:20rpx"/>
 			<view class="mini-btn">
@@ -69,6 +69,7 @@
 			return {
 				windowHeight:0,
 				show: false,
+				selectColor:'#007AFF',
 				list: [
 					{
 						value: '0',
@@ -106,6 +107,10 @@
 				let sex = e[0].label;
 				this.selectSex = sex;
 			},
+			selectShow(){
+				this.show = true;
+				
+			},
 			goAddPlan(){
 				uni.navigateTo({
 					url:'/pages/workdesk/compositeSeach/addplan/addplan'
@@ -131,9 +136,15 @@
 			display: flex;
 			flex-direction: row;
 			justify-content: space-around;
+			height:60rpx;
+			border-radius: 5px;
+			align-items: center;
 		}
 		input{
 			border: 1px solid $uni-border-color;
+			height: 60rpx;
+			border-radius: 5px;
+			padding: 0 3px;
 		}
 	}
 	.table-box{
@@ -152,6 +163,7 @@
 					height: 60rpx;
 					text-align: center;
 					line-height: 60rpx;
+					font-size: 12px;
 				}
 				.look-info{
 					background-color: #00cc66;

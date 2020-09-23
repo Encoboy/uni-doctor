@@ -13,7 +13,7 @@
 					<text>{{date}}</text>
 					<image src="@/static/img/datebtn.png" mode="aspectFit"></image>
 				</view>
-				<u-calendar v-model="show" :mode="mode" @change="change"></u-calendar>
+				<u-calendar v-model="show" max-date="2100"  :mode="mode" @change="change"></u-calendar>
 			</view>
 			<view class="textarea-box">
 				<text>随访说明：</text>
@@ -21,7 +21,7 @@
 			</view>
 			<view class="doctor">
 				<text>随访医生：</text>
-				<input type="text" value="" />
+				<input type="text" value="" v-model="doctor"/>
 				<view class="mini-btn" @click="goSelectDoctorList">
 					选择
 				</view>
@@ -30,7 +30,7 @@
 				<view class="pri-btn">
 					提交
 				</view>
-				<view class="pri-btn exit">
+				<view class="pri-btn exit" @click="cancle">
 					关闭
 				</view>
 			</view>
@@ -47,11 +47,13 @@
 				show: false,
 				mode: 'date',
 				date:'',
+				doctor:'',
 			}
 		},
-		onLoad() {
+		onLoad(options) {
 			const res = uni.getSystemInfoSync();
 			this.windowHeight = res.windowHeight;
+			this.doctor = options.name;
 		},
 		methods:{
 			change(e) {
@@ -62,7 +64,12 @@
 				uni.navigateTo({
 					url:'/pages/workdesk/compositeSeach/selectdoctorlist/selectdoctorlist'
 				})
-			}
+			},
+			cancle(){
+				uni.navigateTo({
+					url:'/pages/workdesk/compositeSeach/compositeSeach'
+				})
+			},
 		}
 	}
 </script>
@@ -78,8 +85,8 @@
 			border: 1px solid $uni-border-color;
 			
 			.add-plan-title {
-				font-size: 70rpx;
 				color: #756666;
+				margin-top: 20rpx;
 			}
 			.select-date{
 				display: flex;
@@ -128,6 +135,7 @@
 					height: 200rpx;
 					border: 1px solid $uni-border-color;
 					background-color: white;
+					border-radius: 5px;
 				}
 			}
 			.doctor{
@@ -140,6 +148,8 @@
 					background-color: white;
 					margin-right: 20rpx;
 					margin-left: 20rpx;
+					border-radius: 5px;
+					height: 60rpx;
 				}
 			}
 			.btn-box{

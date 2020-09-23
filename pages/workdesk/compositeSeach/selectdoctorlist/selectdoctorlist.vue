@@ -5,8 +5,8 @@
 		</view>
 		<view class="search-box">
 			<input type="text" value="" placeholder="请输入医生姓名" placeholder-style="font-size:20rpx"/>
-			<view class="mini-btn">
-				查询
+			<view class="search-pri-btn">
+				查 询
 			</view>
 		</view>
 		<view class="table-box">
@@ -23,26 +23,26 @@
 							<u-th>上级</u-th>
 							<u-th width="25%">操作</u-th>
 						</u-tr>
-						<u-tr>
-							<u-td>1</u-td>
-							<u-td>
-								<text style="color: #007AFF;">李科</text>
-							</u-td>
-							<u-td>女</u-td>
-							<u-td >主治医生</u-td>
-							<u-td>江滨医院</u-td>
-							<u-td width="15%">18877495623</u-td>
-							<u-td>
-								<text style="color: #007AFF;">李科</text>
-							</u-td>
-							<u-td width="25%">
-								<view class="action">
-									<view class="mini-btn">
-										设为随访医生
+						<block v-for="(item,index) in datalist" :key="index">
+							<u-tr>
+								<u-td>{{item.id}}</u-td>
+								<u-td>
+									<text style="color: #007AFF;">{{item.name}}</text>
+								</u-td>
+								<u-td>{{item.sex}}</u-td>
+								<u-td>{{item.post}}</u-td>
+								<u-td>{{item.unit}}</u-td>
+								<u-td width="15%">{{item.phone}}</u-td>
+								<u-td>{{item.leader}}</u-td>
+								<u-td width="25%">
+									<view class="action" @click="selectDoctor(item.name)">
+										<view class="mini-btn">
+											设为随访医生
+										</view>
 									</view>
-								</view>
-							</u-td>
-						</u-tr>
+								</u-td>
+							</u-tr>
+						</block>
 					</u-table>
 				</view>
 			</scroll-view>
@@ -55,6 +55,26 @@
 		data() {
 			return {
 				windowHeight:0,
+				datalist:[
+					{
+						id:'1',
+						name:'李科',
+						sex:'女',
+						post:'主治医生',
+						unit:'江滨医院',
+						phone:'18877495623',
+						leader:'王珂',
+					},
+					{
+						id:'2',
+						name:'李科2',
+						sex:'女',
+						post:'主治医生',
+						unit:'江滨医院',
+						phone:'18877495623',
+						leader:'王珂',
+					}
+				]
 			}
 		},
 		onLoad() {
@@ -62,11 +82,11 @@
 			this.windowHeight = res.windowHeight;
 		},
 		methods: {	
-			goAddPlan(){
+			selectDoctor(name){
 				uni.navigateTo({
-					url:'/pages/workdesk/compositeSeach/addplan/addplan'
+					url:`/pages/workdesk/compositeSeach/addplan/addplan?name=${name}`
 				})
-			}
+			},
 		}
 	}
 </script>
@@ -78,11 +98,13 @@
 		flex-basis: 0;
 		display: flex;
 		flex-direction: row;
-		justify-content: flex-end;
 		align-items: center;
 		input{
 			border: 1px solid $uni-border-color;
 			margin-right: 20rpx;
+			height: 60rpx;
+			border-radius: 5px;
+			padding: 0 5px;
 		}
 	}
 	.table-box{
