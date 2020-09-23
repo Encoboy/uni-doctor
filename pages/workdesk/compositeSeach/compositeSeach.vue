@@ -109,7 +109,6 @@
 			},
 			selectShow(){
 				this.show = true;
-				
 			},
 			goAddPlan(){
 				uni.navigateTo({

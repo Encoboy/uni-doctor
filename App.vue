@@ -17,8 +17,8 @@
 
 <style lang="scss">
 	/*每个页面公共css */
-	@import "uview-ui/index.scss";
 	@import "uni.scss";
+	@import "uview-ui/index.scss";
 	@import "common/common.scss";
 	@import "./static/style/chatInterface.css";
 	@import "./static/style/iconfont/iconfont.css";

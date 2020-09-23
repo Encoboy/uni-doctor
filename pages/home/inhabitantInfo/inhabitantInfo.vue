@@ -3,7 +3,7 @@
 		<view class="header-img-box">
 			<image src="@/static/img/title-img.png" mode="aspectFit"></image>
 		</view>
-		<view class="header-big-title" @click="gochat">
+		<view class="header-big-title" >
 			王五
 		</view>
 		<view class="scroll-box" >
@@ -174,11 +174,7 @@
 					url:'/pages/userCenter/component/editUserInfo'
 				})
 			},
-			gochat(){
-				uni.navigateTo({
-					url:'/pages/conversations/conversations'
-				})
-			}
+			
 		},
 		onLoad(options) {
 			console.log('url传过来的参数：',options);

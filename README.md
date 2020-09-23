@@ -1,5 +1,5 @@
 uni-app
-医生端~
+医生端~doctor
 
 api目录 处理api请求
 
@@ -23,4 +23,21 @@ pages 应用页面
 	mine goeasyIM 我的页面
 	register 注册页
 	workdesk 工作台页面
+	
+plugins 插件
+
+static 静态资源目录
+	images goeasyIM 页面需要的图片
+	img 医生UI上下载的图片
+	style 全局样式
+		iconfont 阿里图标图
+		chantInterface.css goeasyIM的全局样式
+
+unpackage 打包目录
+
+util 工具目录
+
+uview-ui uview UI框架
+
+
 	

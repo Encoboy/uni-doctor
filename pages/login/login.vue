@@ -134,7 +134,6 @@
 			flex-basis: 0;
 			width: 100%;
 			background-color: #22a77a;
-			padding-top: 50rpx;
 			padding: 50rpx 40rpx 0;
 			.login-text {
 				font-size: 60rpx;
