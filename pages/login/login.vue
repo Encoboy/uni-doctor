@@ -76,7 +76,7 @@
 					if (loginResult) {
 						//连接IM
 						getApp().globalData.imService.connectIM();
-						uni.switchTab({
+						uni.navigateTo({
 							url:'/pages/home/home',
 							success() {
 								
