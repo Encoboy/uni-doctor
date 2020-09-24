@@ -190,6 +190,11 @@
 	        "iconPath": "static/img/work-tabbar.png",
 	        "selectedIconPath": "static/img/work-tabbared.png",
 	        "text": ""
+	    },{
+	        "pagePath": "pages/conversations/conversations",
+	        "iconPath": "static/img/chat-notselect.png",
+	        "selectedIconPath": "static/img/chat-select.png",
+	        "text": ""
 	    }]
 	}
 }

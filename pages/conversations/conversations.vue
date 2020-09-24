@@ -331,12 +331,15 @@
 		color: #262628;
 	}
 	.chat_footer{
-		position: fixed;
-		bottom: 0;
-		width: 100%;
 		.conversations,.contacts{
-			height: 90rpx;
+			width: 200rpx;
+			height: 60rpx;
 			text-align: center;
+			line-height: 60rpx;
+			background-color: $uni-color-success;
+			color: white;
+			border-radius: 5px;
+			margin: 50rpx auto;
 		}
 	}
 </style>

@@ -3,7 +3,7 @@
 		<view class="header-img-box">
 			<image src="@/static/img/title-img.png" mode="aspectFit"></image>
 		</view>
-		<view class="header-big-title" @click="gochat">
+		<view class="header-big-title" >
 			总体情况
 		</view>
 		<select-date></select-date>
@@ -88,11 +88,6 @@
 					url:'/pages/home/feedback/feedback'
 				})
 			},
-			gochat(){
-				uni.navigateTo({
-					url:'/pages/conversations/conversations'
-				})
-			}
 		}
 	}
 </script>
