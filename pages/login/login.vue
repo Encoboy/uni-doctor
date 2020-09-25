@@ -174,6 +174,7 @@
 			width: 100%;
 			background-color: #22a77a;
 			padding: 30rpx 40rpx 0;
+			margin-bottom: 40rpx;
 			.login-text {
 				font-size: 60rpx;
 				font-weight: 500;
