@@ -31,7 +31,7 @@
 				</block>
 			</u-table>
 		</view>
-		<doc-tabbar></doc-tabbar>
+		<doc-tabbar :tabbarType="tabbarType"></doc-tabbar>
 	</view>
 </template>
 
@@ -46,6 +46,11 @@
 		data() {
 			return {
 				windowHeight:0,
+				tabbarType:{
+					home:true,
+					work:false,
+					chat:false,
+				},
 				tabelThArr:[
 					'姓名',
 					'血糖',
@@ -74,6 +79,7 @@
 		onLoad() {
 			const res = uni.getSystemInfoSync();
 			this.windowHeight = res.windowHeight;
+			// uni.$emit('tabbarCut',{msg:this.tabbarType})
 		},
 		methods: {
 			goDataVisualization(){

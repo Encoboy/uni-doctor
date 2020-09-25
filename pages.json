@@ -19,7 +19,12 @@
 		{
 			"path":"pages/home/home",
 			"style":{
-				"navigationBarTitleText":"首页"
+				"navigationBarTitleText":"首页",
+				"app-plus":{
+					"titleNView":{
+						"autoBackButton":false
+					}
+				}
 			}
 		},
 		{
@@ -44,7 +49,12 @@
 		{
 			"path":"pages/workdesk/workdesk",
 			"style":{
-				"navigationBarTitleText":"工作台"
+				"navigationBarTitleText":"工作台",
+				"app-plus":{
+					"titleNView":{
+						"autoBackButton":false
+					}
+				}
 			}
 		},
 		{
@@ -106,10 +116,12 @@
 			"style": {
 				"navigationBarTitleText": "会话",
 				"navigationBarBackgroundColor" : "#F3F4F7",
-				"navigationBarTextStyle" : "black"
-				// "app-plus" : {
-				// 	"titleNView" : true
-				// }
+				"navigationBarTextStyle" : "black",
+				"app-plus":{
+					"titleNView":{
+						"autoBackButton":false
+					}
+				}
 			}			
 		},
 		{

@@ -32,7 +32,7 @@
 				<text>个人中心</text>
 			</view>
 		</view>
-		<doc-tabbar></doc-tabbar>
+		<doc-tabbar :tabbarType="tabbarType"></doc-tabbar>
 	</view>
 </template>
 
@@ -45,9 +45,14 @@
 		data() {
 			return {
 				windowHeight:0,
+				tabbarType:{
+					home:false,
+					work:true,
+					chat:false,
+				}
 			}
 		},
-		onLoad() {
+		onLoad(options) {
 			const res = uni.getSystemInfoSync();
 			this.windowHeight = res.windowHeight;
 		},

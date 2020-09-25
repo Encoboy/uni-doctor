@@ -48,7 +48,7 @@
 				通讯录
 			</view>
 		</view>
-		<doc-tabbar></doc-tabbar>
+		<doc-tabbar :tabbarType="tabbarType"></doc-tabbar>
 	</view>
 </template>
 
@@ -74,7 +74,12 @@
 				},
 				friends : null,
 				groups : null,
-				imService : null
+				imService : null,
+				tabbarType:{
+					home:false,
+					work:false,
+					chat:true,
+				},
 			}
 		},
 		onLoad() {
@@ -196,7 +201,9 @@
 	.hospital-box{
 	}
 	.conversations{
-		width: 750rpx;
+		// width: 750rpx;
+		flex:6.5;
+		flex-basis: 0;
 		overflow-x: hidden;
 		display: flex;
 		flex-direction: column;
@@ -340,7 +347,7 @@
 		color: #262628;
 	}
 	.chat_footer{
-		.conversations,.contacts{
+		.contacts{
 			width: 200rpx;
 			height: 60rpx;
 			text-align: center;
