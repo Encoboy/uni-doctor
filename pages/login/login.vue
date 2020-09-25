@@ -42,6 +42,19 @@
 					 </view>
 			 </form>
 		</view>
+		<u-modal class="model-box" v-model="modelShow" >
+			<view class="text">
+				请选择您的的登录身份!
+			</view>
+			<view class="app-select">
+				<view class="doctor" :style="{backgroundColor:isSelectAppDoc?selectAppColor:''}" @click="selectType('doctor')">
+					医生
+				</view>
+				<view class="patient" :style="{backgroundColor:isSelectAppDoc?'':selectAppColor}" @click="selectType('patient')">
+					患者
+				</view>
+			</view>
+		</u-modal>
 	</view>
 </template>
 
@@ -54,6 +67,7 @@
 				selectAppColor:'#007aff',
 				isSelectAppDoc: true,
 				isSelectDoctorAppLogin:true,
+				modelShow:true,
 				username:'',
 				password:'',
 				rules:{
@@ -237,6 +251,31 @@
 						margin-right: 30rpx;
 						margin-left: 30rpx;
 					}
+				}
+			}
+		}
+		.model-box {
+			.text{
+				font-size: 30rpx;
+				text-align: center;
+				margin-top: 40rpx;
+			}
+			.app-select {
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+				margin: 50rpx 0;
+				.doctor,.patient{
+					width: 150rpx;
+					height: 50rpx;
+					background-color: $uni-text-color-disable;
+					margin-left: 40rpx;
+					margin-right: 40rpx;
+					border-radius: 100rpx;
+					text-align: center;
+					line-height: 50rpx;
+					font-size: 20rpx;
+					color: white;
 				}
 			}
 		}
