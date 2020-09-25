@@ -32,11 +32,16 @@
 				<text>个人中心</text>
 			</view>
 		</view>
+		<doc-tabbar></doc-tabbar>
 	</view>
 </template>
 
 <script>
+	import DocTabbar from '@/components/docTabbar/docTabbar.vue';
 	export default {
+		components:{
+			'doc-tabbar':DocTabbar,
+		},
 		data() {
 			return {
 				windowHeight:0,

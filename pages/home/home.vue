@@ -31,14 +31,17 @@
 				</block>
 			</u-table>
 		</view>
+		<doc-tabbar></doc-tabbar>
 	</view>
 </template>
 
 <script>
 	import SelectDate from '@/components/selectDate/selectDate.vue';
+	import DocTabbar from '@/components/docTabbar/docTabbar.vue';
 	export default {
 		components:{
 			'select-date':SelectDate,
+			'doc-tabbar':DocTabbar,
 		},
 		data() {
 			return {
@@ -62,7 +65,7 @@
 						xuetang:'60',
 						xueya:'40',
 						xinlv:'30'
-					},
+					}
 					
 				]
 				
@@ -97,6 +100,8 @@
 		.table-box {
 			flex: 6.5;
 			flex-basis: 0;
+			display: flex;
+			flex-direction: column;
 			.table-content{
 				overflow-y: scroll;
 				.name{

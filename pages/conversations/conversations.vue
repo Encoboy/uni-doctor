@@ -1,5 +1,5 @@
 <template>
-	<view class="">
+	<view  class="hospital-box" :style="{ height: windowHeight + 'px' }">
 		<scroll-view class="conversations" scroll-y="true">
 			<view v-if="conversations && conversations.conversations && conversations.conversations.length !=0">
 				<view class="scroll-item" v-for="(conversation, key) in conversations.conversations" :key="key">
@@ -44,21 +44,24 @@
 			</view>
 		</scroll-view>
 		<view class="chat_footer">
-	<!-- 		<view class="conversations" @click="goConversations">
-				信息
-			</view> -->
 			<view class="contacts" @click="goContacts">
 				通讯录
 			</view>
 		</view>
+		<doc-tabbar></doc-tabbar>
 	</view>
 </template>
 
 <script>
+	import DocTabbar from '@/components/docTabbar/docTabbar.vue';
 	export default {
 		name: "contacts",
+		components:{
+			'doc-tabbar':DocTabbar,
+		},
 		data () {
 			return {
+				windowHeight:0,
 				conversations : {
 					unreadTotal : 0,
 					conversations : []
@@ -73,6 +76,10 @@
 				groups : null,
 				imService : null
 			}
+		},
+		onLoad() {
+			const res = uni.getSystemInfoSync();
+			this.windowHeight = res.windowHeight;
 		},
 		onShow () {
 			this.imService = getApp().globalData.imService;
@@ -186,19 +193,21 @@
 
 <style lang="scss">
 	page{ height: 100%; }
+	.hospital-box{
+	}
 	.conversations{
 		width: 750rpx;
 		overflow-x: hidden;
 		display: flex;
 		flex-direction: column;
 		box-sizing: border-box;
-		height: 100%;
+		height: 80%;
 	}
 	.conversations .scroll-item{
 		height: 152rpx;
 		display: flex;
 		align-items: center;
-		padding-left: 32rpx;
+		// padding-left: 32rpx;
 	}
 	.conversations .scroll-item .head-icon{
 		width:100rpx;
