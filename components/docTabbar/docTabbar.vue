@@ -19,12 +19,12 @@
 		},
 		data(){
 			return {
-				selectHome:'../../static/img/home-select.png',
-				selectWork:'../../static/img/work-select.png',
-				selectChat:'../../static/img/chat-select.png',
-				notSelectHome:'../../static/img/home-notselect.png',
-				notSelectWork:'../../static/img/work-notselect.png',
-				notSelectChat:'../../static/img/chat-notselect.png'
+				selectHome:'../../../static/img/home-select.png',
+				selectWork:'../../../static/img/work-select.png',
+				selectChat:'../../../static/img/chat-select.png',
+				notSelectHome:'../../../static/img/home-notselect.png',
+				notSelectWork:'../../../static/img/work-notselect.png',
+				notSelectChat:'../../../static/img/chat-notselect.png'
 			}
 		},
 		onLoad(options) {
@@ -33,17 +33,17 @@
 		methods:{
 			cutHome(){
 				uni.navigateTo({
-					url:`/pages/home/home`
+					url:`/pages/doctorpage/home/home`
 				})
 			},
 			cutWork(){
 				uni.navigateTo({
-					url:`/pages/workdesk/workdesk`
+					url:`/pages/doctorpage/workdesk/workdesk`
 				});
 			},
 			cutChat(){
 				uni.navigateTo({
-					url:'/pages/conversations/conversations'
+					url:'/pages/chatpage/conversations/conversations'
 				});
 			}
 		}

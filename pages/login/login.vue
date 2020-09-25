@@ -1,16 +1,24 @@
 <template>
 	<view class="hospital-box" :style="{ height: windowHeight + 'px' }">
 		<view class="header-img-box">
-			<image src="../../static/img/title-img.png" mode="aspectFit"></image>
+			<image src="@/static/img/title-img.png" mode="aspectFit"></image>
 		</view>
 		<view class="motto-box">
-			<image src="../../static/img/motto-img.png" mode="aspectFit"></image>
+			<image src="@/static/img/motto-img.png" mode="aspectFit"></image>
 		</view>
 		<view class="form-box">
 			<view class="login-text">
 				登  录
 			</view>
 			 <form class="form" @submit="formSubmit" @reset="formRegister">
+					<view class="app-select">
+						<view class="doctor" :style="{backgroundColor:isSelectAppDoc?selectAppColor:''}" @click="selectType('doctor')">
+							医生登录
+						</view>
+						<view class="patient" :style="{backgroundColor:isSelectAppDoc?'':selectAppColor}" @click="selectType('patient')">
+							患者登录
+						</view>
+					</view>
 					<view class="login-user">
 						 <view class="iconfont icon-user"></view>
 						 <input name="user" v-model="username" placeholder="用户名" placeholder-style="color:lightgray" />
@@ -38,11 +46,14 @@
 </template>
 
 <script>
-	import IMService from "../../lib/imservice";
+	import IMService from "@/lib/imservice";
 	export default {
 		data() {
 			return {
 				windowHeight:0,
+				selectAppColor:'#007aff',
+				isSelectAppDoc: true,
+				isSelectDoctorAppLogin:true,
 				username:'',
 				password:'',
 				rules:{
@@ -76,12 +87,13 @@
 					if (loginResult) {
 						//连接IM
 						getApp().globalData.imService.connectIM();
+						const doctorLogin = '/pages/doctorpage/home/home';
+						const patientLogin = '/pages/patientpage/home/home'
 						uni.navigateTo({
-							url:'/pages/home/home',
-							success() {
-								
-							}
+							url: this.isSelectDoctorAppLogin?doctorLogin:patientLogin,
+							success() {}
 						})
+						
 					} else {
 						uni.showToast({
 							title:'登录失败',
@@ -105,14 +117,27 @@
 				}
 				return bool;
 			},
-			
+			selectType(type){
+				if(type=='doctor'){
+					this.isSelectAppDoc = true;
+					getApp().globalData.isDocutorAppLogin = true;
+					this.isSelectDoctorAppLogin = getApp().globalData.isDocutorAppLogin
+				}else if(type == 'patient') {
+					this.isSelectAppDoc = false;
+					getApp().globalData.isDocutorAppLogin = false;
+					this.isSelectDoctorAppLogin = getApp().globalData.isDocutorAppLogin
+				}
+			},
             reset() {
+				const doctorRegister = '/pages/doctorpage/register/register';
+				const patientRegister = '/pages/patientpage/register/register';
 				uni.navigateTo({
-					url:'/pages/register/register',
+					url: this.isSelectDoctorAppLogin?doctorRegister:patientRegister,
 					success() {
 						console.log('跳转到注册页面')
 					}
 				})
+
             }
 		}
 	}
@@ -134,7 +159,7 @@
 			flex-basis: 0;
 			width: 100%;
 			background-color: #22a77a;
-			padding: 50rpx 40rpx 0;
+			padding: 30rpx 40rpx 0;
 			.login-text {
 				font-size: 60rpx;
 				font-weight: 500;
@@ -145,6 +170,23 @@
 				display: flex;
 				flex-direction: column;
 				margin-top: 100rpx;
+				.app-select {
+					display: flex;
+					flex-direction: row;
+					justify-content: flex-end;
+					margin: 50rpx 0;
+					.doctor,.patient{
+						width: 150rpx;
+						height: 50rpx;
+						background-color: $uni-text-color-disable;
+						margin-left: 40rpx;
+						border-radius: 100rpx;
+						text-align: center;
+						line-height: 50rpx;
+						font-size: 20rpx;
+						color: white;
+					}
+				}
 				// input输入框
 				.login-user, .login-psw {
 					flex: 2;
@@ -183,13 +225,13 @@
 					margin: 70PX 0;
 					.submit {
 						width: 100%;
-						height: 60rpx;
+						height: 76rpx;
 						font-size: 30rpx;
 						background-color: #6ce155;
 						border: none;
 						border-radius: 480rpx;
 						color: white;
-						line-height: 60rpx;
+						line-height: 76rpx;
 					}
 					text{
 						margin-right: 30rpx;

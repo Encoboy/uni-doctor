@@ -3,6 +3,7 @@
 		"^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue"
 	},
 	"pages": [ 
+		// 医生端页面
 		{
 			"path":"pages/login/login",
 			"style":{
@@ -10,14 +11,14 @@
 			}
 		},
 		{
-			"path":"pages/register/register",
+			"path":"pages/doctorpage/register/register",
 			"style":{
 				"navigationBarTitleText":"注册"
 			}
 		},
 		
 		{
-			"path":"pages/home/home",
+			"path":"pages/doctorpage/home/home",
 			"style":{
 				"navigationBarTitleText":"首页",
 				"app-plus":{
@@ -28,26 +29,26 @@
 			}
 		},
 		{
-			"path":"pages/home/dataVisualization/dataVisualization",
+			"path":"pages/doctorpage/home/dataVisualization/dataVisualization",
 			"style":{
 				"navigationBarTitleText":"健康数据信息"
 			}
 		},
 		{
-			"path":"pages/home/inhabitantInfo/inhabitantInfo",
+			"path":"pages/doctorpage/home/inhabitantInfo/inhabitantInfo",
 			"style":{
 				"navigationBarTitleText":"居民信息列表"
 			}
 		},
 		{
-			"path":"pages/home/feedback/feedback",
+			"path":"pages/doctorpage/home/feedback/feedback",
 			"style":{
 				"navigationBarTitleText":"医生反馈"
 			}
 		},
 		
 		{
-			"path":"pages/workdesk/workdesk",
+			"path":"pages/doctorpage/workdesk/workdesk",
 			"style":{
 				"navigationBarTitleText":"工作台",
 				"app-plus":{
@@ -58,61 +59,62 @@
 			}
 		},
 		{
-			"path":"pages/workdesk/compositeSeach/compositeSeach",
+			"path":"pages/doctorpage/workdesk/compositeSeach/compositeSeach",
 			"style":{
 				"navigationBarTitleText":"综合查询"
 			}
 		},
 		{
-			"path":"pages/workdesk/compositeSeach/addplan/addplan",
+			"path":"pages/doctorpage/workdesk/compositeSeach/addplan/addplan",
 			"style":{
 				"navigationBarTitleText":"新增随访计划"
 			}
 		},
 		{
-			"path":"pages/workdesk/compositeSeach/selectdoctorlist/selectdoctorlist",
+			"path":"pages/doctorpage/workdesk/compositeSeach/selectdoctorlist/selectdoctorlist",
 			"style":{
 				"navigationBarTitleText":"选择随访医生"
 			}
 		},
 		{
-			"path":"pages/workdesk/plan/plan",
+			"path":"pages/doctorpage/workdesk/plan/plan",
 			"style":{
 				"navigationBarTitleText":"随访计划"
 			}
 		},
 		{
-			"path":"pages/workdesk/statistics/statistics",
+			"path":"pages/doctorpage/workdesk/statistics/statistics",
 			"style":{
 				"navigationBarTitleText":"随访统计"
 			}
 		},
 		{
-			"path":"pages/workdesk/workcase/workcase",
+			"path":"pages/doctorpage/workdesk/workcase/workcase",
 			"style":{
 				"navigationBarTitleText":"今日工作概况"
 			}
 		},
 		{
-			"path":"pages/workdesk/workSearch/workSearch",
+			"path":"pages/doctorpage/workdesk/workSearch/workSearch",
 			"style":{
 				"navigationBarTitleText":"工作情况查询"
 			}
 		},
 		{
-			"path":"pages/workdesk/usercenter/usercenter",
+			"path":"pages/doctorpage/workdesk/usercenter/usercenter",
 			"style":{
 				"navigationBarTitleText":"个人中心"
 			}
 		},
 		{
-			"path":"pages/workdesk/usercenter/changedoctorInfo/changedoctorInfo",
+			"path":"pages/doctorpage/workdesk/usercenter/changedoctorInfo/changedoctorInfo",
 			"style":{
 				"navigationBarTitleText":"修改信息"
 			}
 		},
+		// 聊天页面
 		{
-			"path": "pages/conversations/conversations",
+			"path": "pages/chatpage/conversations/conversations",
 			"style": {
 				"navigationBarTitleText": "会话",
 				"navigationBarBackgroundColor" : "#F3F4F7",
@@ -125,7 +127,7 @@
 			}			
 		},
 		{
-			"path": "pages/contacts/contacts",
+			"path": "pages/chatpage/contacts/contacts",
 			"style": {
 				"navigationBarTitleText": "通讯录",
 				"navigationBarBackgroundColor" : "#F3F4F7",
@@ -133,7 +135,7 @@
 			}			
 		},
 		{
-			"path": "pages/mine/mine",
+			"path": "pages/chatpage/mine/mine",
 			"style": {
 				"navigationBarTitleText": "我的",
 				"navigationBarBackgroundColor" : "#F3F4F7",
@@ -141,7 +143,7 @@
 			}			
 		},
 		{
-			"path": "pages/chat/privateChat/privateChat",
+			"path": "pages/chatpage/chat/privateChat/privateChat",
 			"style": {
 				"navigationBarTitleText": "uni-app",
 				"navigationBarBackgroundColor" : "#F3F4F7",
@@ -149,7 +151,7 @@
 			}			
 		},
 		{
-			"path": "pages/chat/groupChat/groupChat",
+			"path": "pages/chatpage/chat/groupChat/groupChat",
 			"style": {
 				"navigationBarTitleText": "群",
 				"navigationBarBackgroundColor" : "#F3F4F7",
@@ -157,17 +159,60 @@
 			}			
 		},
 		{
-			"path": "pages/chat/groupChat/member",
+			"path": "pages/chatpage/chat/groupChat/member",
 			"style": {
 				"navigationBarTitleText": "群成员",
 				"navigationBarBackgroundColor" : "#F3F4F7"
 			}			
 		},
 		{
-			"path": "pages/chat/customMessage/customMessage",
+			"path": "pages/chatpage/chat/customMessage/customMessage",
 			"style": {
 				"navigationBarTitleText": "自定义消息示例",
 				"navigationBarBackgroundColor" : "#F3F4F7"
+			}
+		},
+		// 患者端页面
+		{
+			"path": "pages/patientpage/register/register",
+			"style":{
+				"navigationBarTitleText":"注册"
+			}
+		},
+		{
+			"path":"pages/patientpage/home/home",
+			"style":{
+				"navigationBarTitleText":"首页"
+			}
+		},
+		{
+			"path":"pages/patientpage/home/component/historyData",
+			"style":{
+				"navigationBarTitleText":"历史数据"
+			}
+		},
+		{
+			"path":"pages/patientpage/dataWrite/dataWrite",
+			"style":{
+				"navigationBarTitleText":"数据填报"
+			}
+		},
+		{
+			"path":"pages/patientpage/userCenter/userCenter",
+			"style":{
+				"navigationBarTitleText":"用户中心"
+			}
+		},
+		{
+			"path":"pages/patientpage/userCenter/component/addEquipment",
+			"style":{
+				"navigationBarTitleText":"添加设备"
+			}
+		},
+		{
+			"path":"pages/patientpage/userCenter/component/editUserInfo",
+			"style":{
+				"navigationBarTitleText":"修改基本信息"
 			}
 		},
 		// 测试页
