@@ -125,7 +125,71 @@
 		onLoad() {
 			const res = uni.getSystemInfoSync();
 			this.windowHeight = res.windowHeight;
-		}
+		},
+		onBackPress(e) {
+			console.log(e);
+			var pages = getCurrentPages(); // 当前页面
+			var beforePage = pages[pages.length - 2]; // 前一个页面
+			console.log('beforePage',beforePage)
+			console.log('beforePage.route:',beforePage.route)
+			if (e.from == 'backbutton') {
+				// uni.showModal({
+				// 	title: '提示',
+				// 	content: '是否退出登录？',
+				// 	success: function (res) {
+				// 		if (res.confirm) {
+				// 			uni.navigateTo({
+				// 				url:'/pages/login/login'
+				// 			})
+				// 		} else if (res.cancel) {
+				// 			// uni.showToast({
+				// 			// 	title: '用户点击取消',
+				// 			// 	duration: 1000
+				// 			// })
+				// 		}
+				// 	}
+				// });
+				// return true; //阻止默认返回行为
+				if(beforePage.route == 'pages/login/login'){
+					uni.showModal({
+						title: '提示',
+						content: '是否退出登录？',
+						success: function (res) {
+							if (res.confirm) {
+								uni.navigateBack({
+									delta: 1
+								});
+							} else if (res.cancel) {
+								// uni.showToast({
+								// 	title: '用户点击取消',
+								// 	duration: 1000
+								// })
+							}
+						}
+					});
+					return true; //阻止默认返回行为
+				}
+				if(beforePage.route !== 'pages/login/login'){
+					uni.showModal({
+						title: '提示',
+						content: '是否退出登录？',
+						success: function (res) {
+							if (res.confirm) {
+								uni.navigateTo({
+									url:'/pages/login/login'
+								})
+							} else if (res.cancel) {
+								// uni.showToast({
+								// 	title: '用户点击取消',
+								// 	duration: 1000
+								// })
+							}
+						}
+					});
+					return true; //阻止默认返回行为
+				}
+			}
+		},
 	}
 	
 </script>
