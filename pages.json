@@ -182,7 +182,12 @@
 		{
 			"path":"pages/patientpage/home/home",
 			"style":{
-				"navigationBarTitleText":"首页"
+				"navigationBarTitleText":"首页",
+				"app-plus":{
+					"titleNView":{
+						"autoBackButton":false
+					}
+				}
 			}
 		},
 		{
@@ -194,13 +199,23 @@
 		{
 			"path":"pages/patientpage/dataWrite/dataWrite",
 			"style":{
-				"navigationBarTitleText":"数据填报"
+				"navigationBarTitleText":"数据填报",
+				"app-plus":{
+					"titleNView":{
+						"autoBackButton":false
+					}
+				}
 			}
 		},
 		{
 			"path":"pages/patientpage/userCenter/userCenter",
 			"style":{
-				"navigationBarTitleText":"用户中心"
+				"navigationBarTitleText":"用户中心",
+				"app-plus":{
+					"titleNView":{
+						"autoBackButton":false
+					}
+				}
 			}
 		},
 		{

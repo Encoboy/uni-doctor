@@ -136,7 +136,7 @@
 					border: 1px solid $uni-border-color;
 					margin: auto;
 					border-radius: 5px;
-					box-shadow: 5px 4px 5px #888888;
+					box-shadow: 3px 3px 5px #888888;
 					image{
 						width: 70rpx;
 						height: 70rpx;

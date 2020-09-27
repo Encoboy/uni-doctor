@@ -4,9 +4,6 @@
 			<image class="header-img" src="@/static/patientImg/u10.png" mode="aspectFit"></image>
 		</view>
 		<view class="scroll-box">
-			<view class="header-title">
-				首 页
-			</view>
 			<view class="voice-btn">
 				<text class="title">医生反馈</text>
 				<image src="@/static/patientImg/voice.png" mode="aspectFit"></image>

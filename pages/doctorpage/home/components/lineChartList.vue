@@ -1,6 +1,7 @@
 <template>
 	<view>
-		<select-date></select-date>
+<!-- 		<select-date></select-date> -->
+		<single-data></single-data>
 		<view class="table-box">
 			<view class="unit">
 				<view class="name">
@@ -42,10 +43,12 @@
 <script>
 	import LineChart from '@/components/stan-ucharts/LineChart.vue';
 	import SelectDate from '@/components/selectDate/selectDate.vue';
+	import SingleDate from '@/components/selectDate/singleDate.vue';
 	export default {
 		components: {
 			LineChart,
 			'select-date':SelectDate,
+			'single-data':SingleDate,
 		},
 		data() {
 			return {

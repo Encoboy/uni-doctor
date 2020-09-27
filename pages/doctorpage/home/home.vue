@@ -6,7 +6,7 @@
 		<view class="header-big-title" >
 			总体情况
 		</view>
-		<select-date></select-date>
+		<sing-date></sing-date>
 		<view class="table-box">
 			<u-table class="table-title">
 				<u-tr>
@@ -37,10 +37,12 @@
 
 <script>
 	import SelectDate from '@/components/selectDate/selectDate.vue';
+	import SingleDate from '@/components/selectDate/singleDate.vue';
 	import DocTabbar from '@/components/docTabbar/docTabbar.vue';
 	export default {
 		components:{
 			'select-date':SelectDate,
+			'sing-date':SingleDate,
 			'doc-tabbar':DocTabbar,
 		},
 		data() {
@@ -82,10 +84,7 @@
 			this.windowHeight = res.windowHeight;
 		},
 		onShow() {
-			uni.$on('unreadTotal',(data)=>{
-				console.log('dataHomeTotal:',data);
-				this.unreadTotal = data.unreadTotal;
-			})
+			console.log('sha')
 		},
 		methods: {
 			goDataVisualization(){
@@ -114,6 +113,7 @@
 			flex-basis: 0;
 			display: flex;
 			flex-direction: column;
+			margin-top: 30rpx;
 			.table-content{
 				overflow-y: scroll;
 				.name{
