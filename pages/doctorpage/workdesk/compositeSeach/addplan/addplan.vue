@@ -53,7 +53,14 @@
 		onLoad(options) {
 			const res = uni.getSystemInfoSync();
 			this.windowHeight = res.windowHeight;
-			this.doctor = options.name;
+			uni.$on('selectFollowDoctor',(data)=>{
+				this.doctor = data
+			})
+		},
+		onUnload(){
+			uni.$off('selectFollowDoctor',()=>{
+				console.log('关闭selectFollowDoctor监听函数')
+			})
 		},
 		methods:{
 			change(e) {
@@ -66,9 +73,9 @@
 				})
 			},
 			cancle(){
-				uni.navigateTo({
-					url:'/pages/doctorpage/workdesk/compositeSeach/compositeSeach'
-				})
+				uni.navigateBack({
+				    delta: 1
+				});
 			},
 		}
 	}

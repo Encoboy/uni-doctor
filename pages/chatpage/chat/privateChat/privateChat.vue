@@ -74,14 +74,22 @@
 			</view>
 		</view>
 		<view class="action-box" v-if="!video.visible">
-			<view class="action-top">
+			
+			<view class="big-audio-box" v-if="audio.visible">
 				<view :class="[audio.visible ? 'record-icon record-open':'record-icon']" @click="switchAudioKeyboard"></view>
-				<view class="record-input" @touchstart="onRecordStart" @touchend="onRecordEnd" v-if="audio.visible" >{{audio.recording ? '松开发送' : '按住录音'}}</view>
-				<view class="message-input" v-else>
+				<view class="big-record" @touchstart="onRecordStart" @touchend="onRecordEnd">
+					{{audio.recording ? '松开发送' : '按住录音'}}
+				</view>
+				<view class="file-icon more-icon" @click="showMore"></view>
+			</view>
+			<view class="action-top"  v-else>
+				<view :class="[audio.visible ? 'record-icon record-open':'record-icon']" @click="switchAudioKeyboard"></view>
+				<!-- <view class="record-input" @touchstart="onRecordStart" @touchend="onRecordEnd"  >{{audio.recording ? '松开发送' : '按住录音'}}</view> -->
+				<view class="message-input">
 					<input type="text" placeholder="发送消息" v-model="content" @focus="messageInputFocusin">
 				</view>
-				<view class="file-icon emoji-icon" @click="showEmoji"></view>
-				<view class="file-icon more-icon" @click="showMore"></view>
+				<!-- <view class="file-icon emoji-icon" @click="showEmoji"></view> -->
+				<view class="file-icon more-icon" @click="showMore" style="margin-right: 14px;"></view>
 				<span class="send-message-btn" @click="sendMessage">发送</span>
 			</view>
 
@@ -99,10 +107,10 @@
 					<image src="@/static/images/shipin.png"></image>
 					<text>视频</text>
 				</view>
-				<view class="more-item" @click="showCustomMessageForm">
+				<!-- <view class="more-item" @click="showCustomMessageForm">
 					<image src="@/static/images/zidingyi.png"></image>
 					<text>自定义消息</text>
-				</view>
+				</view> -->
 			</view>
 		</view>
 		<view class="record-loading" v-if="audio.recording"></view>

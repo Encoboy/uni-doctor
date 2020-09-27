@@ -83,11 +83,13 @@
 		},
 		methods: {	
 			selectDoctor(name){
-				uni.navigateTo({
-					url:`/pages/doctorpage/workdesk/compositeSeach/addplan/addplan?name=${name}`
-				})
+				uni.$emit('selectFollowDoctor',name);
+				uni.navigateBack({
+				    delta: 1
+				});
 			},
-		}
+		},
+
 	}
 </script>
 
