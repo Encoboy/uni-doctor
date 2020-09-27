@@ -17,7 +17,7 @@
 					userCenter:false,
 					chat:false,
 				}
-			}
+			},
 		},
 		data(){
 			return {
@@ -32,7 +32,10 @@
 			}
 		},
 		onLoad(options) {
-
+			
+		},
+		onShow(){
+			
 		},
 		methods:{
 			cutHome(){

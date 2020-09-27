@@ -6,7 +6,7 @@
 					<view class="item-head">
 						<image :src="friends[conversation.userId] && friends[conversation.userId].avatar" v-if="conversation.type == 'private'" class="head-icon"></image>
 						<image src="/static/images/group.png" v-else  class="head-icon"></image>
-						<view class="item-head_unread" v-if="conversation.unread">{{conversation.unread}}</view>
+						<view class="item-head_unread" v-if="conversation.unread>0">{{conversation.unread}}</view>
 					</view>
 					<view class="scroll-item_info">
 						<view class="item-info-top">
@@ -48,8 +48,8 @@
 				通讯录
 			</view>
 		</view>
-		<doc-tabbar v-if="isDoctorApp" :tabbarType="tabbarType"></doc-tabbar>
-		<pat-tabbar v-if="!isDoctorApp" :tabbarType="tabbarType"></pat-tabbar>
+		<doc-tabbar v-if="isDoctorApp" :tabbarType="tabbarType" ></doc-tabbar>
+		<pat-tabbar v-if="!isDoctorApp" :tabbarType="tabbarType" ></pat-tabbar>
 	</view>
 </template>
 
@@ -92,7 +92,6 @@
 			const res = uni.getSystemInfoSync();
 			this.windowHeight = res.windowHeight;
 			this.isDoctorApp = getApp().globalData.isDocutorAppLogin;
-			console.log(this.isDoctorApp)
 		},
 		onShow () {
 			this.imService = getApp().globalData.imService;
@@ -111,12 +110,14 @@
 			this.groups = this.imService.groups;
 			this.imService.onConversationsUpdate = (conversations) => {
 				this.conversations = conversations;
+				console.log('conversations-unreadTotal-1:',this.conversations.unreadTotal)
 				this.setUnreadAmount();
 			};
 			var promise = this.imService.latestConversations();
 			promise.then(res => {
 					this.conversations = res.content;
 					console.log("conversations load successfully")
+					console.log('conversations-unreadToeal-2:',this.conversations.unreadTotal)
 					this.setUnreadAmount();
 					uni.hideLoading();
 				}).catch(e => {
@@ -137,11 +138,13 @@
 			},
 			setUnreadAmount () {
 				if(this.conversations.unreadTotal >0){
+					console.log('有未读消息')
 					uni.setTabBarBadge({
 						index: 0,
 						text: this.conversations.unreadTotal.toString()
 					})
 				}else{
+					console.log('没有未读消息')
 					uni.hideTabBarRedDot({
 						index :0
 					})

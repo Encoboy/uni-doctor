@@ -74,7 +74,6 @@
 			</view>
 		</view>
 		<view class="action-box" v-if="!video.visible">
-			
 			<view class="big-audio-box" v-if="audio.visible">
 				<view :class="[audio.visible ? 'record-icon record-open':'record-icon']" @click="switchAudioKeyboard"></view>
 				<view class="big-record" @touchstart="onRecordStart" @touchend="onRecordEnd">
@@ -84,11 +83,9 @@
 			</view>
 			<view class="action-top"  v-else>
 				<view :class="[audio.visible ? 'record-icon record-open':'record-icon']" @click="switchAudioKeyboard"></view>
-				<!-- <view class="record-input" @touchstart="onRecordStart" @touchend="onRecordEnd"  >{{audio.recording ? '松开发送' : '按住录音'}}</view> -->
 				<view class="message-input">
 					<input type="text" placeholder="发送消息" v-model="content" @focus="messageInputFocusin">
 				</view>
-				<!-- <view class="file-icon emoji-icon" @click="showEmoji"></view> -->
 				<view class="file-icon more-icon" @click="showMore" style="margin-right: 14px;"></view>
 				<span class="send-message-btn" @click="sendMessage">发送</span>
 			</view>
@@ -165,7 +162,7 @@
 					//语音录音中
 					recording : false,
 					//录音按钮展示
-					visible : false
+					visible : true
 				},
 				video : {
 					visible : false,

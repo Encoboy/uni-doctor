@@ -15,7 +15,7 @@
 					work:false,
 					chat:false,
 				}
-			}
+			},
 		},
 		data(){
 			return {
@@ -28,7 +28,7 @@
 			}
 		},
 		onLoad(options) {
-
+			
 		},
 		methods:{
 			cutHome(){
