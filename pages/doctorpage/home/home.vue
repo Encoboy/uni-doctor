@@ -31,7 +31,7 @@
 				</block>
 			</u-table>
 		</view>
-		<doc-tabbar :tabbarType="tabbarType"></doc-tabbar>
+		<doc-tabbar :tabbarType="tabbarType" :unreadTotal="unreadTotal"></doc-tabbar>
 	</view>
 </template>
 
@@ -46,6 +46,7 @@
 		data() {
 			return {
 				windowHeight:0,
+				unreadTotal:0,
 				tabbarType:{
 					home:true,
 					work:false,
@@ -79,6 +80,12 @@
 		onLoad() {
 			const res = uni.getSystemInfoSync();
 			this.windowHeight = res.windowHeight;
+		},
+		onShow() {
+			uni.$on('unreadTotal',(data)=>{
+				console.log('dataHomeTotal:',data);
+				this.unreadTotal = data.unreadTotal;
+			})
 		},
 		methods: {
 			goDataVisualization(){

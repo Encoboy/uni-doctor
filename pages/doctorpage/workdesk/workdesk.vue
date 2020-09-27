@@ -3,33 +3,47 @@
 		<view class="header-img-box">
 			<image src="@/static/img/title-img.png" mode="aspectFit"></image>
 		</view>
-		<view class="header-big-title header-title">
+	<!-- 	<view class="header-big-title header-title">
 			工作台
-		</view>
+		</view> -->
 		<view class="active-box">
 			<view class="item-box" @click="goCompositeSeach">
-				<image src="@/static/img/composite-seach.png" mode="aspectFit"></image>
-				<text>综合查询</text>
+				<view class="container">
+					<image src="@/static/img/composite-seach.png" mode="aspectFit"></image>
+					<text>综合查询</text>
+				</view>
 			</view>
 			<view class="item-box" @click="goPlan">
-				<image src="@/static/img/plan.png" mode="aspectFit"></image>
-				<text>随访计划</text>
+				<view class="container">
+					<image src="@/static/img/plan.png" mode="aspectFit"></image>
+					<text>随访计划</text>
+				</view>
 			</view>
 			<view class="item-box" @click="goStatistics">
-				<image src="@/static/img/statistics.png" mode="aspectFit"></image>
-				<text>随访统计</text>
+				<view class="container">
+					<image src="@/static/img/statistics.png" mode="aspectFit"></image>
+					<text>随访统计</text>
+				</view>
 			</view>
 			<view class="item-box" @click="goWorkCase">
-				<image src="@/static/img/work-case.png" mode="aspectFit"></image>
-				<text>今日工作概况</text>
+				<view class="container">
+					<image src="@/static/img/work-case.png" mode="aspectFit"></image>
+					<text>今日工作</text>
+					<text>概况</text>
+				</view>
 			</view>
 			<view class="item-box" @click="goWorkSearch">
-				<image src="@/static/img/work-search.png" mode="aspectFit"></image>
-				<text>工作情况查询</text>
+				<view class="container">
+					<image src="@/static/img/work-search.png" mode="aspectFit"></image>
+					<text>工作情况</text>
+					<text>查询</text>
+				</view>
 			</view>
 			<view class="item-box" @click="goUsercenter">
-				<image src="@/static/img/user-center.png" mode="aspectFit"></image>
-				<text>个人中心</text>
+				<view class="container">
+					<image src="@/static/img/user-center.png" mode="aspectFit"></image>
+					<text>个人中心</text>
+				</view>
 			</view>
 		</view>
 		<doc-tabbar :tabbarType="tabbarType"></doc-tabbar>
@@ -101,6 +115,7 @@
 			flex: 7.5;
 			flex-basis: 0;
 			width: 100%;
+			margin-top: 100rpx;
 			display: flex;
 			flex-wrap: wrap;
 			align-content: flex-start;
@@ -108,20 +123,26 @@
 				flex: 1;
 				flex-basis: 0;
 				width: 33.3%;
-				border: 1px solid $uni-border-color;
 				height: 300rpx;
 				min-width: 33.3%;
 				max-width: 33.3%;
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: center;
-				image{
-					width: 100rpx;
-					height: 100rpx;
-					margin-bottom: 10rpx;
+				.container{
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					justify-content: center;
+					width: 85%;
+					height: 90%;
+					border: 1px solid $uni-border-color;
+					margin: auto;
+					border-radius: 5px;
+					box-shadow: 5px 4px 5px #888888;
+					image{
+						width: 70rpx;
+						height: 70rpx;
+						margin-bottom: 30rpx;
+					}
 				}
-				
 			}
 		}
 	}

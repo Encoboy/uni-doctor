@@ -52,11 +52,14 @@
 						content: '确定退出吗?',
 						success: function (res) {
 							if (res.confirm) {
-								getApp().globalData.imService.disconnect().then(res => {
-								    uni.navigateTo({
-								    	url:'/pages/login/login'
-								    })
+								uni.navigateTo({
+									url:'/pages/login/login'
 								})
+								// getApp().globalData.imService.disconnect().then(res => {
+								//     uni.navigateTo({
+								//     	url:'/pages/login/login'
+								//     })
+								// })
 							} else if (res.cancel) {
 								console.log('用户点击取消');
 							}

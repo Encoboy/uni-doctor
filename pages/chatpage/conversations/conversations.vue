@@ -48,7 +48,7 @@
 				通讯录
 			</view>
 		</view>
-		<doc-tabbar v-if="isDoctorApp" :tabbarType="tabbarType" ></doc-tabbar>
+		<doc-tabbar v-if="isDoctorApp" :tabbarType="tabbarType"  :unreadTotal="conversations.unreadTotal"></doc-tabbar>
 		<pat-tabbar v-if="!isDoctorApp" :tabbarType="tabbarType" ></pat-tabbar>
 	</view>
 </template>
@@ -116,7 +116,6 @@
 			var promise = this.imService.latestConversations();
 			promise.then(res => {
 					this.conversations = res.content;
-					console.log("conversations load successfully")
 					console.log('conversations-unreadToeal-2:',this.conversations.unreadTotal)
 					this.setUnreadAmount();
 					uni.hideLoading();
@@ -139,6 +138,7 @@
 			setUnreadAmount () {
 				if(this.conversations.unreadTotal >0){
 					console.log('有未读消息')
+					console.log('总共未读：',this.conversations.unreadTotal)
 					uni.setTabBarBadge({
 						index: 0,
 						text: this.conversations.unreadTotal.toString()

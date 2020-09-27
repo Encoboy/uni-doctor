@@ -16,6 +16,10 @@
 					chat:false,
 				}
 			},
+			unreadTotal:{
+				type:Number,
+				default:0
+			},
 		},
 		data(){
 			return {
@@ -29,6 +33,9 @@
 		},
 		onLoad(options) {
 			
+		},
+		onShow() {
+
 		},
 		methods:{
 			cutHome(){
