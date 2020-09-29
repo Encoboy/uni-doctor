@@ -8,6 +8,7 @@
 		</view>
 		<sing-date></sing-date>
 		<view class="table-box">
+			
 			<u-table class="table-title">
 				<u-tr>
 					<block v-for="(item,index) in tabelThArr" :key="index">
@@ -17,13 +18,13 @@
 			</u-table>
 			<u-table class="table-content">
 				<block v-for="(item,index) in tableUtdContentArr" :key="index">
-					<u-tr>
+					<u-tr class="row">
 						<u-td><text class="name" @click="goInhabitantInfo(item.name)">{{item.name}}</text></u-td>
 						<u-td><text @click="goDataVisualization">{{item.xuetang}}</text></u-td>
 						<u-td><text @click="goDataVisualization">{{item.xueya}}</text></u-td>
 						<u-td><text @click="goDataVisualization">{{item.xinlv}}</text></u-td>
 						<u-td>
-							<view class="mini-btn" @click="goFeedback">
+							<view class="btn" @click="goFeedback">
 								反馈
 							</view>
 						</u-td>
@@ -39,7 +40,7 @@
 	import SelectDate from '@/components/selectDate/selectDate.vue';
 	import SingleDate from '@/components/selectDate/singleDate.vue';
 	import DocTabbar from '@/components/docTabbar/docTabbar.vue';
-
+	import {testReq} from '@/api/request.js';
 	export default {
 		components:{
 			'select-date':SelectDate,
@@ -65,6 +66,42 @@
 				tableUtdContentArr:[
 					{
 						name:'王五',
+						xuetang:'80',
+						xueya:'10',
+						xinlv:'90'
+					},
+					{
+						name:'张三',
+						xuetang:'60',
+						xueya:'40',
+						xinlv:'30'
+					},
+					{
+						name:'李四',
+						xuetang:'50',
+						xueya:'40',
+						xinlv:'30'
+					},
+					{
+						name:'张三',
+						xuetang:'60',
+						xueya:'40',
+						xinlv:'30'
+					},
+					{
+						name:'王五',
+						xuetang:'50',
+						xueya:'40',
+						xinlv:'30'
+					},
+					{
+						name:'张三',
+						xuetang:'60',
+						xueya:'40',
+						xinlv:'30'
+					},
+					{
+						name:'王五',
 						xuetang:'50',
 						xueya:'40',
 						xinlv:'30'
@@ -83,9 +120,10 @@
 		onLoad() {
 			const res = uni.getSystemInfoSync();
 			this.windowHeight = res.windowHeight;
+			// this.getData();
 		},
 		onShow() {
-			console.log('sha')
+			
 		},
 		methods: {
 			goDataVisualization(){
@@ -103,6 +141,14 @@
 					url:'/pages/doctorpage/home/feedback/feedback'
 				})
 			},
+			getData(){
+				testReq().then((res)=>{
+					console.log('数据:',res)
+					this.tableUtdContentArr = res.data.result;
+				}).catch(err => {
+					console.log('出错了')
+				})
+			}
 		},
 		onBackPress(e) {
 			console.log(e);
@@ -146,7 +192,22 @@
 				.name{
 					color:blue;
 				}
+				.row {
+					height: 90rpx;
+					.btn{
+						background-color: $uni-color-primary;
+						color: white;
+						width: 100rpx;
+						height: 50rpx;
+						margin: auto;
+						text-align: center;
+						line-height: 50rpx;
+						border-radius: 10rpx;
+						font-size: 12rpx;
+					}
+				}
 			}
+			
 		}
 	}
 </style>
