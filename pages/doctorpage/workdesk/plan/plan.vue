@@ -3,9 +3,6 @@
 		<view class="header-img-box">
 			<image src="@/static/img/title-img.png" mode="aspectFit"></image>
 		</view>
-		<view class="header-big-title">
-			随访计划
-		</view>
 		<view class="search-box">
 			<u-select v-model="timeShow" :list="timeList" @confirm="timeConfirm"></u-select>
 			<u-select v-model="statusShow" :list="statusList" @confirm="statusConfirm"></u-select>

@@ -75,11 +75,11 @@
 		</view>
 		<view class="action-box" v-if="!video.visible">
 			<view class="big-audio-box" v-if="audio.visible">
-				<view :class="[audio.visible ? 'record-icon record-open':'record-icon']" @click="switchAudioKeyboard"></view>
+				<view :class="[audio.visible ? 'iconfont icon-jianpan':'record-icon']" @click="switchAudioKeyboard"></view>
 				<view class="big-record" @touchstart="onRecordStart" @touchend="onRecordEnd">
 					{{audio.recording ? '松开发送' : '按住录音'}}
 				</view>
-				<view class="file-icon more-icon" @click="showMore"></view>
+				<view class="iconfont icon-jiahao" @click="showMore"></view>
 			</view>
 			<view class="action-top"  v-else>
 				<view :class="[audio.visible ? 'record-icon record-open':'record-icon']" @click="switchAudioKeyboard"></view>
@@ -408,5 +408,8 @@
 	}
 </script>
 
-<style >
+<style lang="scss">
+	.icon-jianpan,.icon-jiahao {
+		font-size: 80rpx;
+	}
 </style>

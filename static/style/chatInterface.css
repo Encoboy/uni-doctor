@@ -202,9 +202,10 @@
 	}
 	.chatInterface .action-box .action-top .send-message-btn{
 		font-size: 30rpx;
-		width: 80rpx;
+		width: 120rpx;
 		line-height: 80rpx;
 		color:#82868E ;
+		text-align: center;
 	}
 	.chatInterface .action-bottom{
 		height: 300rpx;

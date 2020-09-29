@@ -3,9 +3,6 @@
 		<view class="header-img-box">
 			<image src="@/static/img/title-img.png" mode="aspectFit"></image>
 		</view>
-		<view class="header-big-title">
-			工作情况查询
-		</view>
 		<view class="search-box">
 			<u-select v-model="show" :list="list" @confirm="confirm"></u-select>
 			<view class="select-sex" @click="show = true">
