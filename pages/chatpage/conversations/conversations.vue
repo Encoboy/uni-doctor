@@ -43,11 +43,6 @@
 				{{action.toastMessage}}
 			</view>
 		</scroll-view>
-		<view class="chat_footer">
-			<view class="contacts" @click="goContacts">
-				通讯录
-			</view>
-		</view>
 		<doc-tabbar v-if="isDoctorApp" :tabbarType="tabbarType"  :unreadTotal="conversations.unreadTotal"></doc-tabbar>
 		<pat-tabbar v-if="!isDoctorApp" :tabbarType="tabbarType" ></pat-tabbar>
 	</view>
@@ -198,7 +193,7 @@
 					url:'/pages/chatpage/conversations/conversations'
 				})
 			},
-			goContacts(){
+			onNavigationBarButtonTap(){
 				uni.navigateTo({
 					url:'/pages/chatpage/contacts/contacts'
 				})

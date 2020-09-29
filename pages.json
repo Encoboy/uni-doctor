@@ -121,7 +121,14 @@
 				"navigationBarTextStyle" : "black",
 				"app-plus":{
 					"titleNView":{
-						"autoBackButton":false
+						"autoBackButton":false,
+						"buttons": [{  
+						    "text": "\ue660",  
+							"fontSrc":"/static/style/iconfont/iconfont.ttf",
+							"fontSize":"50rpx",
+							"color":"#4cd964",
+							"fontWeight":"bold"
+						}] 
 					}
 				}
 			}			
