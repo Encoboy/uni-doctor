@@ -3,11 +3,8 @@
 		<view class="header-img-box">
 			<image src="@/static/img/title-img.png" mode="aspectFit"></image>
 		</view>
-		<view class="header-big-title">
-			总体情况
-		</view>
 		<!-- 选择日期 -->
-		<select-date></select-date>
+		<single-date></single-date>
 		<view class="radio-box">
 			<u-radio-group v-model="radioValue">
 				<u-radio 
@@ -58,11 +55,11 @@
 </template>
 
 <script>
-	import SelectDate from '@/components/selectDate/selectDate.vue';
+	import SingleDate from '@/components/selectDate/singleDate.vue';
 	import HistogramCharts from '@/components/stan-ucharts/HistogramChart.vue'
 	export default {
 		components:{
-			'select-date':SelectDate,
+			'single-date':SingleDate,
 			'histogram-chart':HistogramCharts,
 		},
 		data() {
@@ -129,7 +126,7 @@
 
 <style lang="scss">
 	.hospital-box{
-		padding: 0 10px 0 0;
+		// padding: 0 10px 0 0;
 		.radio-box{
 			flex: 1;
 			flex-basis: 0;

@@ -3,9 +3,6 @@
 		<view class="header-img-box">
 			<image src="@/static/img/title-img.png" mode="aspectFit"></image>
 		</view>
-	<!-- 	<view class="header-big-title header-title">
-			工作台
-		</view> -->
 		<view class="active-box">
 			<view class="item-box" @click="goCompositeSeach">
 				<view class="container">

@@ -3,9 +3,6 @@
 		<view class="header-img-box">
 			<image src="@/static/img/title-img.png" mode="aspectFit"></image>
 		</view>
-		<view class="header-big-title">
-			今日工作概况
-		</view>
 		<view class="content-box">
 			<scrol-xy-box :listTitle="list1Title"></scrol-xy-box>
 			<scrol-xy-box :listTitle="list2Title"></scrol-xy-box>

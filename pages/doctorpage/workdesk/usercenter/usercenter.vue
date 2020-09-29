@@ -3,9 +3,6 @@
 		<view class="header-img-box">
 			<image src="@/static/img/title-img.png" mode="aspectFit"></image>
 		</view>
-		<view class="header-big-title">
-			个人中心
-		</view>
 		<view class="userInfo-box">
 			<view class="username">
 				胡 克
